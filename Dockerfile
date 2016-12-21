@@ -4,9 +4,9 @@ MAINTAINER Kazunori Sakamoto
 RUN apt-get update && apt-get dist-upgrade -y > /dev/null 2>&1
 RUN apt-get install -y build-essential curl > /dev/null 2>&1
 
-RUN curl -sL https://deb.nodesource.com/setup_7.x
+RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
 RUN apt-get install -y nodejs
-RUN nodejs -v
+RUN node -v
 
 RUN apt-get install -y python
 RUN python -V
