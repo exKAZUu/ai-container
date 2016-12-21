@@ -10,7 +10,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
   && apt-get install -y nodejs > /dev/null 2>&1 \
   && apt-get install -y python python3 > /dev/null 2>&1
 
-RUN make -v \
-  && node -v \
-  && python -V \
-  && python3 -V
+RUN echo "$ make -v => `make -v | head -n 1`" \
+  && echo "$ node -v => `node -v | head -n 1`" \
+  && echo "$ python -V => `python -V | head -n 1`" \
+  && echo "$ python3 -V => `python3 -V | head -n 1`"
