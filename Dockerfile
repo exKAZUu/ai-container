@@ -24,6 +24,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     python \
     python3 \
     ruby \
+    rustc \
     > /dev/null 2>&1 \
   && npm install -g \
     typescript \
@@ -50,6 +51,7 @@ RUN bash /tmp/show_versions.sh \
   "python -V | head -n 1" \
   "python3 -V | head -n 1" \
   "ruby -v | head -n 1" \
+  "rustc --version | head -n 1" \
   "scala -version | head -n 1" \
   "tsc -v | head -n 1" \
   > show_versions \
