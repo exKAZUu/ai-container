@@ -15,7 +15,8 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     python3 \
     ruby \
     > /dev/null 2>&1 \
-  && npm install -g typescript
+  && npm install -g \
+    typescript \
   && rm -rf /var/lib/apt/lists/*
 
 COPY show_versions.sh /tmp/
