@@ -15,6 +15,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     golang \
     ldc \
     llvm \
+    lua \
     make \
     maven \
     nodejs \
@@ -40,6 +41,7 @@ RUN bash /tmp/show_versions.sh \
   "go version | head -n 1" \
   "g++ --version | head -n 1" \
   "gosh -V | head -n 1" \
+  "lua -v | head -n 1" \
   "make -v | head -n 1" \
   "mvn -v | head -n 1" \
   "node -v | head -n 1" \
