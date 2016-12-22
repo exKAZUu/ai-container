@@ -9,19 +9,24 @@ RUN apt-get update > /dev/null 2>&1 \
 
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
   && apt-get install -y \
+    clisp \
     dmd-bin \
+    gauche \
     gdc \
     golang \
     ldc \
     llvm \
+    lua \
     make \
     maven \
     nodejs \
+    ocaml-nox \
     openjdk-8-jdk \
     scala \
     python \
     python3 \
     ruby \
+    rustc \
     > /dev/null 2>&1 \
   && npm install -g \
     coffee-script \
@@ -32,12 +37,15 @@ COPY show_versions.sh /tmp/
 
 RUN bash /tmp/show_versions.sh \
   "clang --version | head -n 1" \
+  "clisp --version | head -n 1" \
   "coffee -v | head -n 1" \
   "dmd --version | head -n 1" \
   "gcc --version | head -n 1" \
   "gdc --version | head -n 1" \
-  "go version | head -n 1" \
   "g++ --version | head -n 1" \
+  "go version | head -n 1" \
+  "gosh -V | head -n 1" \
+  "lua -v | head -n 1" \
   "make -v | head -n 1" \
   "mvn -v | head -n 1" \
   "node -v | head -n 1" \
@@ -45,9 +53,11 @@ RUN bash /tmp/show_versions.sh \
   "javac -version | head -n 1" \
   "llc --version | head -n 1" \
   "ldc2 --version | head -n 1" \
+  "ocaml -version | head -n 1" \
   "python -V | head -n 1" \
   "python3 -V | head -n 1" \
   "ruby -v | head -n 1" \
+  "rustc --version | head -n 1" \
   "scala -version | head -n 1" \
   "tsc -v | head -n 1" \
   > show_versions \
