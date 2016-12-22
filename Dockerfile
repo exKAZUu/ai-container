@@ -16,14 +16,6 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     ruby \
     > /dev/null 2>&1 \
   && rm -rf /var/lib/apt/lists/*
-  
-RUN pwd
-  
-COPY show_versions.sh /tmp/
-
-RUN bash /tmp/show_versions.sh "ruby -v"
-
-RUN bash /tmp/show_versions.sh "ruby -v | head -n 1"
 
 RUN bash /tmp/show_versions.sh \
   "make -v | head -n 1" \
