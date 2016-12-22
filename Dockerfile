@@ -24,4 +24,7 @@ RUN bash show_versions.sh \
   "javac -version | head -n 1" \
   "python -V | head -n 1" \
   "python3 -V | head -n 1" \
-  "ruby -v | head -n 1"
+  "ruby -v | head -n 1" \
+  > show_versions \
+  && cat show_versions \
+  && rm -f show_versions
