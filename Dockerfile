@@ -7,13 +7,13 @@ RUN apt-get update > /dev/null 2>&1 \
 
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
   && apt-get install -y \
-    && make \
-    && maven \
-    && nodejs \
-    && openjdk-8-jdk \
-    && python \
-    && python3 \
-    && ruby \
+    make \
+    maven \
+    nodejs \
+    openjdk-8-jdk \
+    python \
+    python3 \
+    ruby \
     > /dev/null 2>&1
 
 RUN echo "$ make -v => `make -v | head -n 1`" \
