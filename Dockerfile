@@ -1,7 +1,7 @@
 FROM ubuntu:16.10
 MAINTAINER Kazunori Sakamoto
 
-apt update > /dev/null 2>&1 \
+RUN apt update > /dev/null 2>&1 \
   && apt dist-upgrade -y > /dev/null 2>&1 \
   && apt install -y build-essential curl wget > /dev/null 2>&1 \
   && curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
