@@ -17,7 +17,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     make \
     maven \
     nodejs \
-    ocaml-batteries-included \
+    ocaml-nox \
     openjdk-8-jdk \
     scala \
     python \
