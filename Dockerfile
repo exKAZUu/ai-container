@@ -16,11 +16,11 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     ruby \
     > /dev/null 2>&1
 
-RUN bash show_versions.sh "ruby -v"
+RUN bash /show_versions.sh "ruby -v"
 
-RUN bash show_versions.sh "ruby -v | head -n 1"
+RUN bash /show_versions.sh "ruby -v | head -n 1"
 
-RUN bash show_versions.sh \
+RUN bash /show_versions.sh \
   "make -v | head -n 1" \
   "mvn -v | head -n 1" \
   "node -v | head -n 1" \
