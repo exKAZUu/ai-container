@@ -1,7 +1,7 @@
 FROM ubuntu:16.10
 MAINTAINER Kazunori Sakamoto
 
-apt update  \
+RUN apt update  \
   && apt dist-upgrade -y  \
   && apt install -y build-essential curl  \
   && curl -sL https://deb.nodesource.com/setup_7.x | bash -  \
