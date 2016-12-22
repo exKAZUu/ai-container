@@ -13,6 +13,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     gdc \
     golang \
     ldc \
+    llvm \
     make \
     maven \
     nodejs \
@@ -29,6 +30,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
 COPY show_versions.sh /tmp/
 
 RUN bash /tmp/show_versions.sh \
+  "clang --version | head -n 1" \
   "dmd --version | head -n 1" \
   "gcc --version | head -n 1" \
   "gdc --version | head -n 1" \
@@ -39,6 +41,7 @@ RUN bash /tmp/show_versions.sh \
   "node -v | head -n 1" \
   "java -version | head -n 1" \
   "javac -version | head -n 1" \
+  "llc --version | head -n 1" \
   "ldc2 --version | head -n 1" \
   "python -V | head -n 1" \
   "python3 -V | head -n 1" \
