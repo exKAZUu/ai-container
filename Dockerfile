@@ -14,6 +14,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     python \
     python3 \
     ruby \
+    golang \
     > /dev/null 2>&1 \
   && rm -rf /var/lib/apt/lists/*
 
