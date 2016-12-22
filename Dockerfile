@@ -9,6 +9,7 @@ RUN apt-get update > /dev/null 2>&1 \
 
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
   && apt-get install -y \
+    clisp \
     dmd-bin \
     gauche \
     gdc \
@@ -35,6 +36,7 @@ COPY show_versions.sh /tmp/
 
 RUN bash /tmp/show_versions.sh \
   "clang --version | head -n 1" \
+  "clisp --version | head -n 1" \
   "dmd --version | head -n 1" \
   "gcc --version | head -n 1" \
   "gdc --version | head -n 1" \
