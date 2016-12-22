@@ -24,3 +24,5 @@ RUN echo "$ make -v => `make -v | head -n 1`" \
   && echo "$ python -V => `python -V | head -n 1`" \
   && echo "$ python3 -V => `python3 -V | head -n 1`" \
   && echo "$ ruby -v => `ruby -v | head -n 1`"
+
+RUN bash show_versions.sh
