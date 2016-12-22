@@ -3,10 +3,12 @@ MAINTAINER Kazunori Sakamoto
 
 RUN apt-get update > /dev/null 2>&1 \
   && apt-get dist-upgrade -y > /dev/null 2>&1 \
-  && apt-get install -y build-essential curl > /dev/null 2>&1
+  && apt-get install -y build-essential curl > /dev/null 2>&1 \
+  && apt-get update
 
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
   && apt-get install -y \
+    golang \
     make \
     maven \
     nodejs \
@@ -23,6 +25,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
 COPY show_versions.sh /tmp/
 
 RUN bash /tmp/show_versions.sh \
+  "go version | head -n 1" \
   "make -v | head -n 1" \
   "mvn -v | head -n 1" \
   "node -v | head -n 1" \
