@@ -14,9 +14,12 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     python \
     python3 \
     ruby \
-    > /dev/null 2>&1
+    > /dev/null 2>&1 \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN bash show_versions.sh \
+COPY show_versions.sh /tmp/
+
+RUN bash /tmp/show_versions.sh \
   "make -v | head -n 1" \
   "mvn -v | head -n 1" \
   "node -v | head -n 1" \
@@ -26,5 +29,6 @@ RUN bash show_versions.sh \
   "python3 -V | head -n 1" \
   "ruby -v | head -n 1" \
   > show_versions \
+  && rm -rf /tmp/ \
   && cat show_versions \
   && rm -f show_versions
