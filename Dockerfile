@@ -1,16 +1,16 @@
 FROM ubuntu:16.10
 MAINTAINER Kazunori Sakamoto
 
-RUN apt-get update > /dev/null 2>&1 \
-  && apt-get dist-upgrade -y > /dev/null 2>&1 \
-  && apt-get install -y build-essential curl > /dev/null 2>&1 \
-  && curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
-  && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list > /dev/null 2>&1 \
-  && apt-get update > /dev/null 2>&1 \
-  && apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring > /dev/null 2>&1 \
-  && apt-get update > /dev/null 2>&1
+apt update  \
+  && apt dist-upgrade -y  \
+  && apt install -y build-essential curl  \
+  && curl -sL https://deb.nodesource.com/setup_7.x | bash -  \
+  && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list  \
+  && apt update  \
+  && apt -y --allow-unauthenticated install --reinstall d-apt-keyring  \
+  && apt update 
 
-RUN apt-get install -y \
+RUN apt install -y \
     clisp \
     dmd-bin \
     gauche \
@@ -18,7 +18,7 @@ RUN apt-get install -y \
     golang \
     ldc \
     llvm \
-    lua \
+    lua5.3 \
     make \
     maven \
     nodejs \
