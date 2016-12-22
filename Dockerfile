@@ -3,9 +3,7 @@ MAINTAINER Kazunori Sakamoto
 
 RUN apt-get update > /dev/null 2>&1 \
   && apt-get dist-upgrade -y > /dev/null 2>&1 \
-  && apt-get install -y build-essential curl > /dev/null 2>&1
-  && apt-add-repository \
-    ppa:evarlast/golang1.4 \
+  && apt-get install -y build-essential curl > /dev/null 2>&1 \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-get update && apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring && apt-get update
 
@@ -32,6 +30,7 @@ RUN bash /tmp/show_versions.sh \
   "dmd --version | head -n 1" \
   "gcc --version | head -n 1" \
   "gdc --version | head -n 1" \
+  "go version | head -n 1" \
   "g++ --version | head -n 1" \
   "make -v | head -n 1" \
   "mvn -v | head -n 1" \
