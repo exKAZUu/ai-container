@@ -3,11 +3,7 @@
 IFS_BACKUP=$IFS
 IFS=$'\n'
 
-commands=(
-  "ruby -v"
-  "ruby -v"
-)
-for cmd in ${commands[@]}; do
+for cmd in $*; do
     echo "${cmd} => `eval ${cmd}`"
 done
 

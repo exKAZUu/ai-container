@@ -16,11 +16,12 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     ruby \
     > /dev/null 2>&1
 
-RUN echo "$ make -v => `make -v | head -n 1`" \
-  && echo "$ mvn -v => `mvn -v | head -n 1`" \
-  && echo "$ node -v => `node -v | head -n 1`" \
-  && echo "$ java -version => `java -version | head -n 1`" \
-  && echo "$ javac -version => `javac -version | head -n 1`" \
-  && echo "$ python -V => `python -V | head -n 1`" \
-  && echo "$ python3 -V => `python3 -V | head -n 1`" \
-  && echo "$ ruby -v => `ruby -v | head -n 1`"
+RUN bash show_versions.sh \
+  "make -v | head -n 1" \
+  "mvn -v | head -n 1" \
+  "node -v | head -n 1" \
+  "java -version | head -n 1" \
+  "javac -version | head -n 1" \
+  "python -V | head -n 1" \
+  "python3 -V | head -n 1" \
+  "ruby -v | head -n 1"
