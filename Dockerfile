@@ -6,6 +6,9 @@ RUN apt-get update > /dev/null 2>&1 \
   && apt-get install -y build-essential curl > /dev/null 2>&1
 
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
+  && apt-add-repository \
+    ppa:evarlast/golang1.4 \
+  && apt-get update \
   && apt-get install -y \
     make \
     maven \
@@ -15,6 +18,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     python \
     python3 \
     ruby \
+    golang \
     > /dev/null 2>&1 \
   && rm -rf /var/lib/apt/lists/*
 
