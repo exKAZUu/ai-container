@@ -18,7 +18,6 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     > /dev/null 2>&1 \
   && npm install -g \
     typescript \
-  && curl https://sh.rustup.rs -sSf | sh > /dev/null 2>&1 \
   && rm -rf /var/lib/apt/lists/*
 
 COPY show_versions.sh /tmp/
