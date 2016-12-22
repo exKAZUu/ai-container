@@ -17,6 +17,8 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     > /dev/null 2>&1 \
   && rm -rf /var/lib/apt/lists/*
 
+COPY show_versions.sh /tmp/
+
 RUN bash /tmp/show_versions.sh \
   "make -v | head -n 1" \
   "mvn -v | head -n 1" \
