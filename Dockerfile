@@ -6,10 +6,14 @@ RUN apt-get update > /dev/null 2>&1 \
   && apt-get install -y build-essential curl > /dev/null 2>&1
   && apt-add-repository \
     ppa:evarlast/golang1.4 \
-  && apt-get update
+  && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
+  && apt-get update && apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring && apt-get update
 
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
   && apt-get install -y \
+    dmd-bin \
+    gdc \
+    golang \
     make \
     maven \
     nodejs \
@@ -18,7 +22,6 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     python \
     python3 \
     ruby \
-    golang \
     > /dev/null 2>&1 \
   && rm -rf /var/lib/apt/lists/*
 
