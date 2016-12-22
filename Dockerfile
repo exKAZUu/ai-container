@@ -31,6 +31,7 @@ RUN apt-get install -y \
     rustc \
     > /dev/null 2>&1 \
   && npm install -g \
+    coffee-script \
     typescript \
   && rm -rf /var/lib/apt/lists/*
 
@@ -39,6 +40,7 @@ COPY show_versions.sh /tmp/
 RUN bash /tmp/show_versions.sh \
     "clang --version | head -n 1" \
     "clisp --version | head -n 1" \
+    "coffee -v | head -n 1" \
     "dmd --version | head -n 1" \
     "gcc --version | head -n 1" \
     "gdc --version | head -n 1" \
