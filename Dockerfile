@@ -16,6 +16,10 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
     ruby \
     > /dev/null 2>&1
   && rm -rf /var/lib/apt/lists/*
+  
+RUN pwd
+  
+ADD show_versions.sh /
 
 RUN bash /show_versions.sh "ruby -v"
 
