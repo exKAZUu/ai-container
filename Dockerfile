@@ -27,6 +27,7 @@ RUN apt install -y \
     scala \
     python \
     python3 \
+    swi-prolog \
     ruby \
     rustc \
     > /dev/null 2>&1 \
@@ -58,6 +59,7 @@ RUN bash /tmp/show_versions.sh \
     "ocaml -version | head -n 1" \
     "python -V | head -n 1" \
     "python3 -V | head -n 1" \
+    "swipl --version | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
     "scala -version | head -n 1" \
