@@ -9,7 +9,7 @@ RUN apt update > /dev/null 2>&1 \
   && apt-get update > /dev/null 2>&1 \
   && apt -y --allow-unauthenticated install --reinstall d-apt-keyring > /dev/null 2>&1 \
   && apt update > /dev/null 2>&1
-  
+
 RUN apt install -y \
     clisp \
     dmd-bin \
@@ -27,6 +27,7 @@ RUN apt install -y \
     scala \
     python \
     python3 \
+    perl \
     php7.0 \
     swi-prolog \
     ruby \
@@ -60,6 +61,7 @@ RUN bash /tmp/show_versions.sh \
     "ocaml -version | head -n 1" \
     "python -V | head -n 1" \
     "python3 -V | head -n 1" \
+    "perl -v | head -n 1" \
     "php -v | head -n 1" \
     "swipl --version | head -n 1" \
     "ruby -v | head -n 1" \
