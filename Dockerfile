@@ -18,6 +18,7 @@ RUN apt install -y \
     gdc \
     ghc \
     golang \
+    groovy \
     ldc \
     llvm \
     lua5.3 \
@@ -54,6 +55,7 @@ RUN bash /tmp/show_versions.sh \
     "g++ --version | head -n 1" \
     "go version | head -n 1" \
     "gosh -V | head -n 1" \
+    "groovy --version | head -n 1" \
     "lua -v | head -n 1" \
     "make -v | head -n 1" \
     "mvn -v | head -n 1" \
