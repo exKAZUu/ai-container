@@ -21,6 +21,9 @@ RUN apt install -y \
     lua5.3 \
     make \
     maven \
+    mono-complete \
+    mono-dmcs \
+    mono-gmcs \
     nodejs \
     ocaml-nox \
     openjdk-8-jdk \
@@ -42,6 +45,8 @@ RUN bash /tmp/show_versions.sh \
     "clisp --version | head -n 1" \
     "coffee -v | head -n 1" \
     "dmd --version | head -n 1" \
+    "dmcs --version | head -n 1" \
+    "gmcs --version | head -n 1" \
     "gcc --version | head -n 1" \
     "gdc --version | head -n 1" \
     "g++ --version | head -n 1" \
@@ -50,6 +55,7 @@ RUN bash /tmp/show_versions.sh \
     "lua -v | head -n 1" \
     "make -v | head -n 1" \
     "mvn -v | head -n 1" \
+    "mono -V | head -n 1" \
     "node -v | head -n 1" \
     "java -version | head -n 1" \
     "javac -version | head -n 1" \
@@ -62,6 +68,7 @@ RUN bash /tmp/show_versions.sh \
     "rustc --version | head -n 1" \
     "scala -version | head -n 1" \
     "tsc -v | head -n 1" \
+    "xbuild --version | head -n 1" \
     > show_versions \
   && rm -rf /tmp/ \
   && cat show_versions \
