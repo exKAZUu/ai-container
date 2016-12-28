@@ -33,6 +33,7 @@ RUN apt install -y \
   && npm install -g \
     coffee-script \
     typescript \
+    LiveScript \
   && rm -rf /var/lib/apt/lists/*
 
 COPY show_versions.sh /tmp/
@@ -55,6 +56,7 @@ RUN bash /tmp/show_versions.sh \
     "javac -version | head -n 1" \
     "llc --version | head -n 1" \
     "ldc2 --version | head -n 1" \
+    "lsc -v | head -n 1" \
     "ocaml -version | head -n 1" \
     "python -V | head -n 1" \
     "python3 -V | head -n 1" \
