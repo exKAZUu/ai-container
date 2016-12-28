@@ -16,6 +16,7 @@ RUN apt install -y \
     erlang \
     gauche \
     gdc \
+    ghc \
     golang \
     ldc \
     llvm \
@@ -49,6 +50,7 @@ RUN bash /tmp/show_versions.sh \
     "erl +V | head -n 1" \
     "gcc --version | head -n 1" \
     "gdc --version | head -n 1" \
+    "ghc --version | head -n 1" \
     "g++ --version | head -n 1" \
     "go version | head -n 1" \
     "gosh -V | head -n 1" \
