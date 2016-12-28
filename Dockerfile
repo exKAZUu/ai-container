@@ -17,6 +17,7 @@ RUN apt install -y \
     gauche \
     gdc \
     ghc \
+    gnu-smalltalk \
     golang \
     ldc \
     llvm \
@@ -54,6 +55,7 @@ RUN bash /tmp/show_versions.sh \
     "g++ --version | head -n 1" \
     "go version | head -n 1" \
     "gosh -V | head -n 1" \
+    "gst -v | head -n 1" \
     "lua -v | head -n 1" \
     "make -v | head -n 1" \
     "mvn -v | head -n 1" \
