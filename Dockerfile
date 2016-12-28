@@ -28,6 +28,7 @@ RUN apt install -y \
     python \
     python3 \
     php7.0 \
+    swi-prolog \
     ruby \
     rustc \
     > /dev/null 2>&1 \
@@ -60,6 +61,7 @@ RUN bash /tmp/show_versions.sh \
     "python -V | head -n 1" \
     "python3 -V | head -n 1" \
     "php -v | head -n 1" \
+    "swipl --version | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
     "scala -version | head -n 1" \
