@@ -22,7 +22,7 @@ RUN apt install -y \
     make \
     maven \
     mono-complete \
-    #mono-dmcs \
+    mono-dmcs \
     #mono-gmcs \
     nodejs \
     ocaml-nox \
@@ -45,7 +45,7 @@ RUN bash /tmp/show_versions.sh \
     "clisp --version | head -n 1" \
     "coffee -v | head -n 1" \
     "dmd --version | head -n 1" \
-    #"dmcs --version | head -n 1" \
+    "dmcs --version | head -n 1" \
     #"gmcs --version | head -n 1" \
     "gcc --version | head -n 1" \
     "gdc --version | head -n 1" \
