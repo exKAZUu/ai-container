@@ -13,6 +13,7 @@ RUN apt update > /dev/null 2>&1 \
 RUN apt install -y \
     clisp \
     dmd-bin \
+    erlang \
     gauche \
     gdc \
     golang \
@@ -42,6 +43,7 @@ RUN bash /tmp/show_versions.sh \
     "clisp --version | head -n 1" \
     "coffee -v | head -n 1" \
     "dmd --version | head -n 1" \
+    "erl +V | head -n 1" \
     "gcc --version | head -n 1" \
     "gdc --version | head -n 1" \
     "g++ --version | head -n 1" \
