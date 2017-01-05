@@ -17,6 +17,7 @@ RUN apt install -y \
     gauche \
     gdc \
     ghc \
+    gnu-smalltalk \
     golang \
     groovy \
     ldc \
@@ -57,6 +58,7 @@ RUN bash /tmp/show_versions.sh \
     "go version | head -n 1" \
     "gosh -V | head -n 1" \
     "groovy --version | head -n 1" \
+    "gst -v | head -n 1" \
     "lua -v | head -n 1" \
     "make -v | head -n 1" \
     "mvn -v | head -n 1" \
