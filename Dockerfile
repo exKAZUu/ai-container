@@ -59,7 +59,7 @@ RUN bash /tmp/show_versions.sh \
     "ocaml -version | head -n 1" \
     "python -V | head -n 1" \
     "python3 -V | head -n 1" \
-    "perl -v | head -n 1" \
+    "perl -v | sed -n 2P" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
     "scala -version | head -n 1" \
