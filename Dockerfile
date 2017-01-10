@@ -63,6 +63,7 @@ RUN bash /tmp/show_versions.sh \
     "make -v | head -n 1" \
     "mvn -v | head -n 1" \
     "node -v | head -n 1" \
+    "npm -v | head -n 1" \
     "java -version | head -n 1" \
     "javac -version | head -n 1" \
     "llc --version | head -n 1" \
