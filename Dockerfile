@@ -59,7 +59,7 @@ RUN bash /tmp/show_versions.sh \
     "gosh -V | head -n 1" \
     "groovy --version | head -n 1" \
     "gst -v | head -n 1" \
-    "lua -v | head -n 1" \
+    "lua5.3 -v | head -n 1" \
     "make -v | head -n 1" \
     "mvn -v | head -n 1" \
     "node -v | head -n 1" \
