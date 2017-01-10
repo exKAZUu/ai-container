@@ -73,6 +73,7 @@ RUN bash /tmp/show_versions.sh \
     "python3 -V | head -n 1" \
     "perl -v | head -n 1" \
     "php -v | head -n 1" \
+    "php7 --version | head -n 1" \
     "swipl --version | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
