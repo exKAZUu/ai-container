@@ -8,7 +8,7 @@ RUN apt update > /dev/null 2>&1 \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list > /dev/null 2>&1 \
   && apt-get update > /dev/null 2>&1 \
   && apt -y --allow-unauthenticated install --reinstall d-apt-keyring > /dev/null 2>&1 \
-  && apt update > /dev/null 2>&1
+  && apt update > /dev/null 2>&1 \
   && apt upgrade > /dev/null 2>&1
 
 RUN apt install -y \
