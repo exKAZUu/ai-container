@@ -11,6 +11,7 @@ RUN apt update > /dev/null 2>&1 \
   && apt update > /dev/null 2>&1
 
 RUN apt install -y \
+    clang-3.9 \
     clisp \
     dmd-bin \
     erlang \
