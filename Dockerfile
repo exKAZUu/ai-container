@@ -8,14 +8,19 @@ RUN apt update > /dev/null 2>&1 \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list > /dev/null 2>&1 \
   && apt-get update > /dev/null 2>&1 \
   && apt -y --allow-unauthenticated install --reinstall d-apt-keyring > /dev/null 2>&1 \
-  && apt update > /dev/null 2>&1
-  
+  && apt update > /dev/null 2>&1 \
+  && apt upgrade > /dev/null 2>&1
+
 RUN apt install -y \
     clisp \
     dmd-bin \
+    erlang \
     gauche \
     gdc \
+    ghc \
+    gnu-smalltalk \
     golang \
+    groovy \
     ldc \
     llvm \
     lua5.3 \
@@ -28,12 +33,16 @@ RUN apt install -y \
     scala \
     python \
     python3 \
+    perl \
+    php7.0 \
+    swi-prolog \
     ruby \
     rustc \
     > /dev/null 2>&1 \
   && npm install -g \
     coffee-script \
     typescript \
+    livescript \
   && rm -rf /var/lib/apt/lists/*
 
 COPY show_versions.sh /tmp/
@@ -43,23 +52,33 @@ RUN bash /tmp/show_versions.sh \
     "clisp --version | head -n 1" \
     "coffee -v | head -n 1" \
     "dmd --version | head -n 1" \
+    "erl +V | head -n 1" \
     "gcc --version | head -n 1" \
     "gdc --version | head -n 1" \
+    "ghc --version | head -n 1" \
     "g++ --version | head -n 1" \
     "go version | head -n 1" \
     "gosh -V | head -n 1" \
-    "lua -v | head -n 1" \
+    "groovy --version | head -n 1" \
+    "gst -v | head -n 1" \
+    "lua5.3 -v | head -n 1" \
     "make -v | head -n 1" \
     "mvn -v | head -n 1" \
     "mono -V | head -n 1" \
     "node -v | head -n 1" \
+    "npm -v | head -n 1" \
     "java -version | head -n 1" \
     "javac -version | head -n 1" \
     "llc --version | head -n 1" \
     "ldc2 --version | head -n 1" \
+    "lsc -v | head -n 1" \
     "ocaml -version | head -n 1" \
     "python -V | head -n 1" \
     "python3 -V | head -n 1" \
+    "perl -v | sed -n 2P" \
+    "php -v | head -n 1" \
+    "php7 --version | head -n 1" \
+    "swipl --version | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
     "scala -version | head -n 1" \
