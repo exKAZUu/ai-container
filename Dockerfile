@@ -9,9 +9,15 @@ RUN apt update > /dev/null 2>&1 \
   && apt-get update > /dev/null 2>&1 \
   && apt -y --allow-unauthenticated install --reinstall d-apt-keyring > /dev/null 2>&1 \
   && apt update > /dev/null 2>&1 \
-  && apt upgrade > /dev/null 2>&1
+  && apt upgrade > /dev/null 2>&1 \
+  && apt clean > /dev/null 2>&1 \
+  && mv /var/lib/apt/lists /tmp \
+  && mkdir -p /var/lib/apt/lists/partial \
+  && apt-get clean \
+  && apt-get update
 
 RUN apt install -y \
+    clang-3.9 \
     clisp \
     dmd-bin \
     erlang \
@@ -47,7 +53,7 @@ RUN apt install -y \
 COPY show_versions.sh /tmp/
 
 RUN bash /tmp/show_versions.sh \
-    "clang --version | head -n 1" \
+    "clang-3.9 --version | head -n 1" \
     "clisp --version | head -n 1" \
     "coffee -v | head -n 1" \
     "dmd --version | head -n 1" \
