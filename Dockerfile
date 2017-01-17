@@ -2,16 +2,14 @@ FROM ubuntu:16.10
 MAINTAINER Kazunori Sakamoto
 
 RUN apt update \
-  && apt dist-upgrade -y \
-  && apt install -y build-essential curl wget \
+  && apt full-upgrade -y \
+  && apt install -y build-essential curl wget zip unzip \
   && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
-  && echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
   && apt-get update \
   && apt -y --allow-unauthenticated install --reinstall d-apt-keyring \
   && apt update \
-  && apt upgrade
+  && apt full-upgrade -y
 
 RUN apt install -y \
     clisp \
@@ -48,6 +46,9 @@ RUN apt install -y \
     coffee-script \
     typescript \
     livescript
+  && curl -s https://get.sdkman.io | bash \
+  && source "$HOME/.sdkman/bin/sdkman-init.sh" \
+  && sdk install kotlin
 #  && rm -rf /var/lib/apt/lists/*
 
 COPY show_versions.sh /tmp/
