@@ -45,8 +45,8 @@ RUN apt install -y \
   && npm install -g \
     coffee-script \
     typescript \
-    livescript \
-  && rm -rf /var/lib/apt/lists/*
+    livescript
+#  && rm -rf /var/lib/apt/lists/*
 
 COPY show_versions.sh /tmp/
 
