@@ -47,6 +47,9 @@ RUN apt install -y \
   && yes | sdk install java \
   && sdk install ant \
   && sdk install ceylon \
+  && sdk install gradle \
+  && sdk install groovy \
+  && sdk install ceylon \
   && sdk install sbt \
   && sdk install scala \
   && sdk install kotlin \
