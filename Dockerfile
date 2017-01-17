@@ -1,8 +1,6 @@
 FROM ubuntu:16.10
 MAINTAINER Kazunori Sakamoto
 
-RUN ln -snf /bin/bash /bin/sh # for source command, but this is not a good solution ...
-
 RUN apt update \
   && apt full-upgrade -y \
   && apt install -y build-essential curl wget zip unzip \
@@ -46,6 +44,8 @@ RUN npm install -g \
     coffee-script \
     typescript \
     livescript
+
+RUN ln -snf /bin/bash /bin/sh # for source command, but this is not a good solution ...
     
 RUN curl -s https://get.sdkman.io | bash \
   && source "$HOME/.sdkman/bin/sdkman-init.sh" \
