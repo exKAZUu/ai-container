@@ -51,16 +51,17 @@ RUN curl -s https://get.sdkman.io | bash \
   && sdk install ceylon \
   && sdk install gradle \
   && sdk install groovy \
-  && sdk install ceylon \
-  && sdk install sbt \
-  && sdk install scala \
   && sdk install kotlin \
-  && sdk install maven
+  && sdk install maven \
+  && sdk install sbt \
+  && sdk install scala
 #  && rm -rf /var/lib/apt/lists/*
 
 COPY show_versions.sh /tmp/
 
 RUN bash /tmp/show_versions.sh \
+    "ant -version | head -n 1" \
+    "ceylon -v | head -n 1" \
     "clang --version | head -n 1" \
     "clisp --version | head -n 1" \
     "coffee -v | head -n 1" \
@@ -73,10 +74,12 @@ RUN bash /tmp/show_versions.sh \
     "g++ --version | head -n 1" \
     "go version | head -n 1" \
     "gosh -V | head -n 1" \
+    "gradle -version | head -n 3 | tail -n 1" \
     "groovy --version | head -n 1" \
     "gst -v | head -n 1" \
     "java -version | head -n 1" \
     "javac -version | head -n 1" \
+    "kotlin -version | head -n 1" \
     "ldc2 --version | head -n 1" \
     "llc --version | head -n 1" \
     "lsc -v | head -n 1" \
