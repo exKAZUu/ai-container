@@ -6,6 +6,8 @@ RUN apt update \
   && apt install -y build-essential curl wget \
   && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
+  && echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
   && apt-get update \
   && apt -y --allow-unauthenticated install --reinstall d-apt-keyring \
   && apt update \
@@ -33,6 +35,7 @@ RUN apt install -y \
     nodejs \
     ocaml-nox \
     openjdk-8-jdk \
+    sbt \
     scala \
     python \
     python3 \
@@ -41,7 +44,6 @@ RUN apt install -y \
     swi-prolog \
     ruby \
     rustc \
-    \
   && npm install -g \
     coffee-script \
     typescript \
