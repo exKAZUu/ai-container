@@ -45,7 +45,7 @@ RUN npm install -g \
     typescript \
     livescript
 
-# for source command, but this is not a good solution ...
+# for source command, but a not good solution ...
 RUN ln -snf /bin/bash /bin/sh
     
 RUN curl -s https://get.sdkman.io | bash \
