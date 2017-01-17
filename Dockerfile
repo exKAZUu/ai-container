@@ -44,8 +44,13 @@ RUN apt install -y \
     livescript \
   && curl -s https://get.sdkman.io | bash \
   && source "$HOME/.sdkman/bin/sdkman-init.sh" \
-  && yes | sdk install java
-  && sdk install kotlin
+  && yes | sdk install java \
+  && sdk install ant \
+  && sdk install ceylon \
+  && sdk install sbt \
+  && sdk install scala \
+  && sdk install kotlin \
+  && sdk install maven
 #  && rm -rf /var/lib/apt/lists/*
 
 COPY show_versions.sh /tmp/
