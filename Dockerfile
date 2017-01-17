@@ -26,15 +26,11 @@ RUN apt install -y \
     llvm \
     lua5.3 \
     make \
-    maven \
     mono-complete \
     mono-dmcs \
     mono-xbuild \
     nodejs \
     ocaml-nox \
-    openjdk-8-jdk \
-    sbt \
-    scala \
     python \
     python3 \
     perl \
@@ -45,9 +41,10 @@ RUN apt install -y \
   && npm install -g \
     coffee-script \
     typescript \
-    livescript
+    livescript \
   && curl -s https://get.sdkman.io | bash \
   && source "$HOME/.sdkman/bin/sdkman-init.sh" \
+  && yes | sdk install java
   && sdk install kotlin
 #  && rm -rf /var/lib/apt/lists/*
 
