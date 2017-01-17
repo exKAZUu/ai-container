@@ -45,11 +45,12 @@ RUN npm install -g \
     typescript \
     livescript
 
-# for source command, but a not good solution ...
+# for source command, but not a good way ...
 RUN ln -snf /bin/bash /bin/sh
     
 RUN curl -s https://get.sdkman.io | bash \
   && source "$HOME/.sdkman/bin/sdkman-init.sh" \
+  && echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' > ~/.profile
   && yes | sdk install java \
   && sdk install ant \
   && sdk install ceylon \
