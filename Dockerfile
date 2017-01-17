@@ -1,6 +1,8 @@
 FROM ubuntu:16.10
 MAINTAINER Kazunori Sakamoto
 
+RUN ln -snf /bin/bash /bin/sh # for source command, but this is not a good solution ...
+
 RUN apt update \
   && apt full-upgrade -y \
   && apt install -y build-essential curl wget zip unzip \
@@ -37,7 +39,8 @@ RUN apt install -y \
     php \
     swi-prolog \
     ruby \
-    rustc
+    rustc \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g \
     coffee-script \
@@ -55,7 +58,6 @@ RUN curl -s https://get.sdkman.io | bash \
   && sdk install maven \
   && sdk install sbt \
   && sdk install scala
-#  && rm -rf /var/lib/apt/lists/*
 
 COPY show_versions.sh /tmp/
 
@@ -97,6 +99,7 @@ RUN bash /tmp/show_versions.sh \
     "php -v | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
+    "sbt about | head -n 2 | tail -n 1" \
     "scala -version | head -n 1" \
     "swipl --version | head -n 1" \
     "tsc -v | head -n 1" \
