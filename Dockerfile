@@ -12,6 +12,7 @@ RUN apt update \
   && apt full-upgrade -y
 
 RUN apt install -y \
+    clang \
     clisp \
     clojure1.6 \
     dmd-bin \
