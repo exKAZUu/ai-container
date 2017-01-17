@@ -37,12 +37,14 @@ RUN apt install -y \
     php \
     swi-prolog \
     ruby \
-    rustc \
-  && npm install -g \
+    rustc
+
+RUN npm install -g \
     coffee-script \
     typescript \
-    livescript \
-  && curl -s https://get.sdkman.io | bash \
+    livescript
+    
+RUN curl -s https://get.sdkman.io | bash \
   && source "$HOME/.sdkman/bin/sdkman-init.sh" \
   && yes | sdk install java \
   && sdk install ant \
