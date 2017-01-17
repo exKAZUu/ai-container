@@ -1,15 +1,15 @@
 FROM ubuntu:16.10
 MAINTAINER Kazunori Sakamoto
 
-RUN apt update > /dev/null 2>&1 \
-  && apt dist-upgrade -y > /dev/null 2>&1 \
-  && apt install -y build-essential curl wget > /dev/null 2>&1 \
-  && curl -sL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1 \
-  && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list > /dev/null 2>&1 \
-  && apt-get update > /dev/null 2>&1 \
-  && apt -y --allow-unauthenticated install --reinstall d-apt-keyring > /dev/null 2>&1 \
-  && apt update > /dev/null 2>&1 \
-  && apt upgrade > /dev/null 2>&1
+RUN apt update \
+  && apt dist-upgrade -y \
+  && apt install -y build-essential curl wget \
+  && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+  && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
+  && apt-get update \
+  && apt -y --allow-unauthenticated install --reinstall d-apt-keyring \
+  && apt update \
+  && apt upgrade
 
 RUN apt install -y \
     clisp \
@@ -24,7 +24,7 @@ RUN apt install -y \
     groovy \
     ldc \
     llvm \
-    lua \
+    lua5.3 \
     make \
     maven \
     mono-complete \
@@ -41,7 +41,7 @@ RUN apt install -y \
     swi-prolog \
     ruby \
     rustc \
-    > /dev/null 2>&1 \
+    \
   && npm install -g \
     coffee-script \
     typescript \
