@@ -24,7 +24,7 @@ RUN apt install -y \
     groovy \
     ldc \
     llvm \
-    lua5.3 \
+    lua \
     make \
     maven \
     mono-complete \
@@ -37,7 +37,7 @@ RUN apt install -y \
     python \
     python3 \
     perl \
-    php7.0 \
+    php \
     swi-prolog \
     ruby \
     rustc \
@@ -64,7 +64,7 @@ RUN bash /tmp/show_versions.sh \
     "gosh -V | head -n 1" \
     "groovy --version | head -n 1" \
     "gst -v | head -n 1" \
-    "lua5.3 -v | head -n 1" \
+    "lua -v | head -n 1" \
     "make -v | head -n 1" \
     "mvn -v | head -n 1" \
     "mono -V | head -n 1" \
