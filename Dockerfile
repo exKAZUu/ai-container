@@ -50,7 +50,7 @@ RUN ln -snf /bin/bash /bin/sh
     
 RUN curl -s https://get.sdkman.io | bash \
   && source "$HOME/.sdkman/bin/sdkman-init.sh" \
-  && echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' > ~/.profile
+  && echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' > ~/.bashrc
   && yes | sdk install java \
   && sdk install ant \
   && sdk install ceylon \
