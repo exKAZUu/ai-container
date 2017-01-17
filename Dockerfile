@@ -26,6 +26,9 @@ RUN apt install -y \
     lua5.3 \
     make \
     maven \
+    mono-complete \
+    mono-dmcs \
+    mono-xbuild \
     nodejs \
     ocaml-nox \
     openjdk-8-jdk \
@@ -63,6 +66,10 @@ RUN bash /tmp/show_versions.sh \
     "lua5.3 -v | head -n 1" \
     "make -v | head -n 1" \
     "mvn -v | head -n 1" \
+    "mono -V | head -n 1" \
+    "xbuild --verison | head -n 1" \
+    "dmcs --version | head -n 1" \
+    "mcs --version | head -n 1" \
     "node -v | head -n 1" \
     "npm -v | head -n 1" \
     "java -version | head -n 1" \
