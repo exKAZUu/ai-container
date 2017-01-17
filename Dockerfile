@@ -22,7 +22,6 @@ RUN apt install -y \
     ghc \
     gnu-smalltalk \
     golang \
-    groovy \
     ldc \
     llvm \
     lua5.3 \
