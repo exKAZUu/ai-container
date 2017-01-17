@@ -13,6 +13,7 @@ RUN apt update > /dev/null 2>&1 \
 
 RUN apt install -y \
     clisp \
+    clojure1.6 \
     dmd-bin \
     erlang \
     gauche \
