@@ -9,9 +9,8 @@ RUN apt update \
   && apt-get update \
   && apt -y --allow-unauthenticated install --reinstall d-apt-keyring \
   && apt update \
-  && apt full-upgrade -y
-
-RUN apt install -y \
+  && apt full-upgrade -y \
+  && apt install -y \
     clang \
     clisp \
     clojure1.6 \
@@ -37,15 +36,17 @@ RUN apt install -y \
     php \
     swi-prolog \
     ruby \
-    rustc
-
-RUN npm install -g \
+    rustc \
+  && npm install -g \
     coffee-script \
     typescript \
-    livescript
+    livescript \
+  && adduser --disabled-password --gecos "" aicomp
+
+USER aicomp
     
 RUN curl -s https://get.sdkman.io | bash \
-  && bash -l -c "
+  && bash -l -c " \
     yes | sdk install java \
     && sdk install ant \
     && sdk install ceylon \
@@ -104,5 +105,11 @@ RUN bash /tmp/show_versions.sh \
     "xbuild --verison | head -n 1" \
     > show_versions \
   && cat show_versions \
-  && rm -rf /tmp/* show_versions \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /tmp/show_versions.sh show_versions
+
+USER root
+
+RUN apt purge -y curl wget zip unzip \
+  && apt autoremove -y \
+  && apt clean -y \
+  && rm -rf /var/lib/apt/lists/* /tmp/*
