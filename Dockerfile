@@ -38,7 +38,6 @@ RUN apt install -y \
     swi-prolog \
     ruby \
     rustc
-  && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g \
     coffee-script \
@@ -105,4 +104,5 @@ RUN bash /tmp/show_versions.sh \
     "xbuild --verison | head -n 1" \
     > show_versions \
   && cat show_versions \
-  && rm -rf /tmp/* show_versions
+  && rm -rf /tmp/* show_versions \
+  && rm -rf /var/lib/apt/lists/*
