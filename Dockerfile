@@ -37,6 +37,7 @@ RUN apt update \
     swi-prolog \
     ruby \
     rustc \
+  && apt clean -y \
   && npm install -g \
     coffee-script \
     typescript \
