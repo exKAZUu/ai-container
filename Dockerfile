@@ -57,7 +57,7 @@ RUN curl -s https://get.sdkman.io | bash \
     && sdk install maven \
     && sdk install sbt \
     && sdk install scala \
-  "
+  " \
   && rm -Rf /home/aicomp/.sdkman/archives/* /home/aicomp/.sdkman/tmp/*
 
 COPY show_versions.sh /home/aicomp/
