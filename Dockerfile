@@ -58,9 +58,9 @@ RUN curl -s https://get.sdkman.io | bash \
     && sdk install scala \
   "
 
-COPY show_versions.sh /tmp/
+COPY show_versions.sh /home/aicomp/
 
-RUN bash -l /tmp/show_versions.sh \
+RUN bash -l /home/aicomp/show_versions.sh \
     "ant -version | head -n 1" \
     "ceylon -v | head -n 1" \
     "clang --version | head -n 1" \
@@ -103,9 +103,9 @@ RUN bash -l /tmp/show_versions.sh \
     "swipl --version | head -n 1" \
     "tsc -v | head -n 1" \
     "xbuild --verison | head -n 1" \
-    > show_versions \
-  && cat show_versions \
-  && rm -rf /tmp/show_versions.sh show_versions
+    > /home/aicomp/show_versions \
+  && cat /home/aicomp/show_versions \
+  && rm -rf /home/aicomp/show_versions.sh /home/aicomp/show_versions
 
 USER root
 
