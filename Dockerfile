@@ -37,8 +37,8 @@ RUN apt install -y \
     php \
     swi-prolog \
     ruby \
-    rustc \
-  && rm -rf /var/lib/apt/lists/*
+    rustc
+#  && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g \
     coffee-script \
@@ -50,7 +50,7 @@ RUN ln -snf /bin/bash /bin/sh
     
 RUN curl -s https://get.sdkman.io | bash \
   && source "$HOME/.sdkman/bin/sdkman-init.sh" \
-  && echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' > ~/.bashrc \
+  && echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' >> ~/.bashrc \
   && yes | sdk install java \
   && sdk install ant \
   && sdk install ceylon \
@@ -60,6 +60,8 @@ RUN curl -s https://get.sdkman.io | bash \
   && sdk install maven \
   && sdk install sbt \
   && sdk install scala
+
+RUN cat ~/.bashrc
 
 COPY show_versions.sh /tmp/
 
