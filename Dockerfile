@@ -38,33 +38,25 @@ RUN apt install -y \
     swi-prolog \
     ruby \
     rustc
-#  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g \
     coffee-script \
     typescript \
     livescript
-
-# for source command, but not a good way ...
-RUN ln -snf /bin/bash /bin/sh
-
-RUN bash -c "echo test"
     
 RUN curl -s https://get.sdkman.io | bash \
-  && source "$HOME/.sdkman/bin/sdkman-init.sh" \
-  && echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' >> ~/.bashrc \
-  && cat ~/.bashrc \
-  && yes | sdk install java \
-  && sdk install ant \
-  && sdk install ceylon \
-  && sdk install gradle \
-  && sdk install groovy \
-  && sdk install kotlin \
-  && sdk install maven \
-  && sdk install sbt \
-  && sdk install scala
-
-RUN cat ~/.bashrc
+  && bash -l -c "
+    yes | sdk install java \
+    && sdk install ant \
+    && sdk install ceylon \
+    && sdk install gradle \
+    && sdk install groovy \
+    && sdk install kotlin \
+    && sdk install maven \
+    && sdk install sbt \
+    && sdk install scala \
+  "
 
 COPY show_versions.sh /tmp/
 
@@ -112,6 +104,5 @@ RUN bash /tmp/show_versions.sh \
     "tsc -v | head -n 1" \
     "xbuild --verison | head -n 1" \
     > show_versions \
-  && cat show_versions
-#  && rm -rf /tmp/ \
-#  && rm -f show_versions
+  && cat show_versions \
+  && rm -rf /tmp/* show_versions
