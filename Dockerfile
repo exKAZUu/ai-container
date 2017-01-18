@@ -58,6 +58,7 @@ RUN curl -s https://get.sdkman.io | bash \
     && sdk install sbt \
     && sdk install scala \
   " \
+  && sbt about -Xmx1524M \
   && rm -Rf /home/aicomp/.sdkman/archives/* /home/aicomp/.sdkman/tmp/*
 
 COPY show_versions.sh /home/aicomp/
