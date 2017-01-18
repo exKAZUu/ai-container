@@ -60,7 +60,7 @@ RUN curl -s https://get.sdkman.io | bash \
 
 COPY show_versions.sh /tmp/
 
-RUN bash /tmp/show_versions.sh \
+RUN bash -l /tmp/show_versions.sh \
     "ant -version | head -n 1" \
     "ceylon -v | head -n 1" \
     "clang --version | head -n 1" \
