@@ -47,10 +47,13 @@ RUN npm install -g \
 
 # for source command, but not a good way ...
 RUN ln -snf /bin/bash /bin/sh
+
+RUN bash -c "echo test"
     
 RUN curl -s https://get.sdkman.io | bash \
   && source "$HOME/.sdkman/bin/sdkman-init.sh" \
   && echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' >> ~/.bashrc \
+  && cat ~/.bashrc \
   && yes | sdk install java \
   && sdk install ant \
   && sdk install ceylon \
