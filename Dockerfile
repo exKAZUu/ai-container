@@ -112,6 +112,6 @@ RUN bash /tmp/show_versions.sh \
     "tsc -v | head -n 1" \
     "xbuild --verison | head -n 1" \
     > show_versions \
-  && rm -rf /tmp/ \
-  && cat show_versions \
-  && rm -f show_versions
+  && cat show_versions
+#  && rm -rf /tmp/ \
+#  && rm -f show_versions
