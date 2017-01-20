@@ -13,7 +13,7 @@ USER aicomp
 RUN curl -s https://get.sdkman.io | bash \
   && bash -l -c "yes | sdk install java" \
   && bash -l -c "java -version" \
-  && bash -l -c "sdk install sbt && sbt about -mem 3762" \
+  && bash -l -c "sdk install sbt && sbt about -mem 3072" \
   && rm -Rf /home/aicomp/.sdkman/archives/* /home/aicomp/.sdkman/tmp/*
 
 COPY show_versions.sh /home/aicomp/
