@@ -13,7 +13,6 @@ RUN apt update \
   && apt install -y \
     clang \
     clisp \
-    clojure1.6 \
     dmd-bin \
     erlang \
     gauche \
