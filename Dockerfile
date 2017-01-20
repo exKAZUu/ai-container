@@ -1,19 +1,63 @@
 FROM ubuntu:16.10
 MAINTAINER Kazunori Sakamoto
 
-RUN free -m
-
 RUN apt update \
   && apt full-upgrade -y \
   && apt install -y build-essential curl wget zip unzip \
+  && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+  && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
+  && apt-get update \
+  && apt -y --allow-unauthenticated install --reinstall d-apt-keyring \
+  && apt update \
+  && apt full-upgrade -y \
+  && apt install -y \
+    clang \
+    clisp \
+    clojure1.6 \
+    dmd-bin \
+    erlang \
+    gauche \
+    gdc \
+    ghc \
+    gnu-smalltalk \
+    golang \
+    ldc \
+    llvm \
+    lua5.3 \
+    make \
+    mono-complete \
+    mono-dmcs \
+    mono-xbuild \
+    nodejs \
+    ocaml-nox \
+    python \
+    python3 \
+    perl \
+    php \
+    swi-prolog \
+    ruby \
+    rustc \
+  && apt clean -y \
+  && npm install -g \
+    coffee-script \
+    typescript \
+    livescript \
   && adduser --disabled-password --gecos "" aicomp
 
 USER aicomp
     
 RUN curl -s https://get.sdkman.io | bash \
-  && bash -l -c "yes | sdk install java" \
-  && bash -l -c "java -version" \
-  && bash -l -c "sdk install sbt && sbt about -mem 3072" \
+  && bash -l -c " \
+    yes | sdk install java \
+    && sdk install ant \
+    && sdk install ceylon \
+    && sdk install gradle \
+    && sdk install groovy \
+    && sdk install kotlin \
+    && sdk install maven \
+    && sdk install sbt \
+    && sdk install scala \
+  " \
   && rm -Rf /home/aicomp/.sdkman/archives/* /home/aicomp/.sdkman/tmp/*
 
 COPY show_versions.sh /home/aicomp/
