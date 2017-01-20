@@ -67,6 +67,6 @@ RUN bash -l /home/aicomp/show_versions.sh \
 
 USER root
 
-RUN apt purge -y curl wget zip unzip man \
+RUN apt purge -y wget zip unzip man \
   && apt clean -y \
   && rm -rf /var/lib/apt/lists/* /tmp/*
