@@ -46,7 +46,7 @@ RUN apt update \
 USER aicomp
     
 RUN curl -s https://get.sdkman.io | bash \
-  && echo "-Xms4G -Xmx4G" >> ~/.sbtopts \
+  && echo "-Xms4G -Xmx4G" >> /home/aicomp/.sbtopts \
   && bash -l -c " \
     yes | sdk install java \
     && sdk install ant \
