@@ -101,6 +101,7 @@ RUN bash -l /home/aicomp/show_versions.sh \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
     "SBT_OPTS='-Xms512M -Xmx4G' sbt about | head -n 2 | tail -n 1" \
+    "SBT_OPTS='-Xms512M -Xmx4G' sbt about | head -n 2 | tail -n 1" \
     "scala -version | head -n 1" \
     "swipl --version | head -n 1" \
     "tsc -v | head -n 1" \
