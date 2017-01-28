@@ -46,7 +46,7 @@ RUN apt update \
 USER aicomp
     
 RUN curl -s https://get.sdkman.io | bash \
-  && echo "-Xms4G -Xmx4G" >> /home/aicomp/.sbtopts \
+  && echo "-Xms512MB -Xmx4G" >> /home/aicomp/.sbtopts \
   && bash -l -c " \
     yes | sdk install java \
     && sdk install ant \
@@ -100,7 +100,7 @@ RUN bash -l /home/aicomp/show_versions.sh \
     "php -v | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
-    "sbt about | head -n 2 | tail -n 1" \
+    "SBT_OPTS='-Xms512MB -Xmx4G' sbt about | head -n 2 | tail -n 1" \
     "scala -version | head -n 1" \
     "swipl --version | head -n 1" \
     "tsc -v | head -n 1" \
