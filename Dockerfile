@@ -20,7 +20,6 @@ RUN apt update \
     ghc \
     gnu-smalltalk \
     golang \
-    ldc \
     llvm \
     lua5.3 \
     make \
@@ -83,7 +82,6 @@ RUN bash -l /home/aicomp/show_versions.sh \
     "java -version | head -n 1" \
     "javac -version | head -n 1" \
     "kotlin -version | head -n 1" \
-    "ldc2 --version | head -n 1" \
     "llc --version | head -n 1" \
     "lsc -v | head -n 1" \
     "lua5.3 -v | head -n 1" \
