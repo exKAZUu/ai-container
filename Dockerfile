@@ -40,7 +40,10 @@ RUN apt-get update \
     coffee-script \
     typescript \
     livescript \
-  && adduser --disabled-password --gecos "" aicomp
+  && adduser --disabled-password --gecos "" aicomp \
+  && apt-get purge -y man \
+  && apt-get clean -y \
+  && rm -rf /var/lib/apt/lists/* /tmp/*
 
 USER aicomp
     
