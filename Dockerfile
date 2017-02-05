@@ -3,7 +3,7 @@ MAINTAINER Kazunori Sakamoto
 
 RUN apt update \
   && apt full-upgrade -y \
-  && apt install -y build-essential curl wget zip unzip \
+  && apt install -y build-essential curl wget zip unzip dos2unix \
   && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-get update \
