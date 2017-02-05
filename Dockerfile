@@ -1,16 +1,16 @@
 FROM ubuntu:16.10
 MAINTAINER Kazunori Sakamoto
 
-RUN apt update \
-  && apt full-upgrade -y \
-  && apt install -y build-essential curl wget zip unzip dos2unix \
+RUN apt-get update \
+  && apt-get dist-upgrade -y \
+  && apt-get install -y build-essential curl wget zip unzip dos2unix \
   && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-get update \
-  && apt -y --allow-unauthenticated install --reinstall d-apt-keyring \
-  && apt update \
-  && apt full-upgrade -y \
-  && apt install -y \
+  && apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring \
+  && apt-get update \
+  && apt-get dist-upgrade -y \
+  && apt-get install -y \
     clang \
     clisp \
     dmd-bin \
@@ -35,7 +35,7 @@ RUN apt update \
     swi-prolog \
     ruby \
     rustc \
-  && apt clean -y \
+  && apt-get clean -y \
   && npm install -g \
     coffee-script \
     typescript \
@@ -110,6 +110,6 @@ RUN bash -l /home/aicomp/show_versions.sh \
 
 USER root
 
-RUN apt purge -y man \
-  && apt clean -y \
+RUN apt-get purge -y man \
+  && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/* /tmp/*
