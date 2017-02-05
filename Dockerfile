@@ -46,6 +46,8 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* /tmp/*
 
 USER aicomp
+
+COPY show_versions.sh /home/aicomp/
     
 RUN curl -s https://get.sdkman.io | bash \
   && echo "-Xms512M -Xmx4G" >> /home/aicomp/.sbtopts \
@@ -60,11 +62,8 @@ RUN curl -s https://get.sdkman.io | bash \
     && sdk install sbt \
     && sdk install scala \
   " \
-  && rm -Rf /home/aicomp/.sdkman/archives/* /home/aicomp/.sdkman/tmp/*
-
-COPY show_versions.sh /home/aicomp/
-
-RUN bash -l /home/aicomp/show_versions.sh \
+  && rm -Rf /home/aicomp/.sdkman/archives/* /home/aicomp/.sdkman/tmp/* \
+  && bash -l /home/aicomp/show_versions.sh \
     "ant -version | head -n 1" \
     "ceylon -v | head -n 1" \
     "clang --version | head -n 1" \
@@ -110,9 +109,3 @@ RUN bash -l /home/aicomp/show_versions.sh \
     > /home/aicomp/show_versions \
   && cat /home/aicomp/show_versions \
   && rm -rf /home/aicomp/show_versions.sh /home/aicomp/show_versions
-
-USER root
-
-RUN apt-get purge -y man \
-  && apt-get clean -y \
-  && rm -rf /var/lib/apt/lists/* /tmp/*
