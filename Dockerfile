@@ -1,4 +1,4 @@
-FROM appcontainers/ubuntu:16.10
+FROM appcontainers/ubuntu:yakkety
 MAINTAINER Kazunori Sakamoto
 
 RUN apt-get update \
