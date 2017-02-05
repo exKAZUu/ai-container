@@ -69,7 +69,7 @@ RUN bash -l /home/aicomp/show_versions.sh \
     "coffee -v | head -n 1" \
     "dmcs --version | head -n 1" \
     "dmd --version | head -n 1" \
-    "erl +V | head -n 1" \
+    "erl +V 2>&1 | head -n 1" \
     "gcc --version | head -n 1" \
     "gdc --version | head -n 1" \
     "ghc --version | head -n 1" \
@@ -79,8 +79,8 @@ RUN bash -l /home/aicomp/show_versions.sh \
     "gradle -version | head -n 3 | tail -n 1" \
     "groovy --version | head -n 1" \
     "gst -v | head -n 1" \
-    "java -version | head -n 1" \
-    "javac -version | head -n 1" \
+    "java -version 2>&1 | head -n 1" \
+    "javac -version 2>&1 | head -n 1" \
     "kotlin -version | head -n 1" \
     "llc --version | head -n 1" \
     "lsc -v | head -n 1" \
@@ -92,7 +92,7 @@ RUN bash -l /home/aicomp/show_versions.sh \
     "node -v | head -n 1" \
     "npm -v | head -n 1" \
     "ocaml -version | head -n 1" \
-    "python -V | head -n 1" \
+    "python -V 2>&1 | head -n 1" \
     "python3 -V | head -n 1" \
     "perl -v | sed -n 2P" \
     "php -v | head -n 1" \
@@ -100,7 +100,7 @@ RUN bash -l /home/aicomp/show_versions.sh \
     "rustc --version | head -n 1" \
     "SBT_OPTS='-Xms512M -Xmx4G' sbt about | head -n 2 | tail -n 1" \
     "SBT_OPTS='-Xms512M -Xmx4G' sbt about | head -n 2 | tail -n 1" \
-    "scala -version | head -n 1" \
+    "scala -version 2>&1 | head -n 1" \
     "swipl --version | head -n 1" \
     "tsc -v | head -n 1" \
     "xbuild --verison | head -n 1" \
