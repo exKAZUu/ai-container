@@ -1,4 +1,4 @@
-FROM ubuntu:16.10
+FROM appcontainers/ubuntu:16.10
 MAINTAINER Kazunori Sakamoto
 
 RUN apt-get update \
