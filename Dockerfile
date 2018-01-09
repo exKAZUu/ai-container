@@ -57,7 +57,7 @@ RUN curl -s https://get.sdkman.io | bash \
     && sdk install ceylon \
     && sdk install gradle \
     && sdk install groovy \
-    && sdk install kotlin 1.0.6 \
+    && sdk install kotlin \
     && sdk install maven \
     && sdk install sbt \
     && sdk install scala \
