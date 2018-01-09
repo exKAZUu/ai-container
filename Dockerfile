@@ -4,7 +4,7 @@ MAINTAINER Kazunori Sakamoto
 RUN apt-get update \
   && apt-get dist-upgrade -y \
   && apt-get install -y build-essential curl wget zip unzip dos2unix \
-  && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+  && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-get update \
   && apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring \
