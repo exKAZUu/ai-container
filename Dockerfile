@@ -21,7 +21,7 @@ RUN apt-get update \
     ghc \
     gnu-smalltalk \
     golang \
-	libboost-all-dev \
+    libboost-all-dev \
     llvm \
     lua5.3 \
     make \
@@ -56,7 +56,7 @@ RUN curl -s https://get.sdkman.io | bash \
   && echo 'export SDKMAN_DIR="/home/aicomp/.sdkman"' >> ~/.bash_profile \
   && echo '[[ -s "/home/aicomp/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aicomp/.sdkman/bin/sdkman-init.sh"' >> ~/.bash_profile \
   && bash -l -c " \
-	yes | sdk install java \
+    yes | sdk install java \
     && sdk install ant \
     && sdk install ceylon \
     && sdk install gradle \
@@ -84,7 +84,7 @@ RUN curl -s https://get.sdkman.io | bash \
     "erl +V 2>&1 | head -n 1" \
     "gcc --version | head -n 1" \
     "gdc --version | head -n 1" \
-	"gem -v | head -n 1" \
+    "gem -v | head -n 1" \
     "ghc --version | head -n 1" \
     "g++ --version | head -n 1" \
     "go version | head -n 1" \
@@ -95,7 +95,7 @@ RUN curl -s https://get.sdkman.io | bash \
     "java -version 2>&1 | head -n 1" \
     "javac -version 2>&1 | head -n 1" \
     "kotlin -version | head -n 1" \
-    "llc --version | head -n 1" \
+    "llc --version | head -n 2 | tail -n 1" \
     "lsc -v | head -n 1" \
     "lua5.3 -v | head -n 1" \
     "make -v | head -n 1" \
@@ -105,20 +105,22 @@ RUN curl -s https://get.sdkman.io | bash \
     "node -v | head -n 1" \
     "npm -v | head -n 1" \
     "ocaml -version | head -n 1" \
-	"pip -V | head -n 1" \
-	"pip3 -V | head -n 1" \
+    "pip -V | head -n 1" \
+    "pip3 -V | head -n 1" \
     "python -V 2>&1 | head -n 1" \
     "python3 -V | head -n 1" \
     "perl -v | sed -n 2P" \
     "php -v | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
-    "SBT_OPTS='-Xms512M -Xmx4G' sbt about | head -n 2 | tail -n 1" \
-    "SBT_OPTS='-Xms512M -Xmx4G' sbt about | head -n 2 | tail -n 1" \
+    "SBT_OPTS='-Xms512M -Xmx4G' sbt about | head -n 5 | tail -n 1" \
+    "SBT_OPTS='-Xms512M -Xmx4G' sbt about | head -n 5 | tail -n 1" \
     "scala -version 2>&1 | head -n 1" \
     "swipl --version | head -n 1" \
     "tsc -v | head -n 1" \
     "xbuild --verison | head -n 1" \
+    "pip list" \
+    "pip3 list" \
     > ~/show_versions \
   && cat ~/show_versions \
   && rm -rf ~/show_versions.sh ~/show_versions
