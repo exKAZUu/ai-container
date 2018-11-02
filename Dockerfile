@@ -4,7 +4,7 @@ MAINTAINER Kazunori Sakamoto
 RUN apt-get update \
   && apt-get dist-upgrade -y \
   && apt-get install -y build-essential curl wget dirmngr zip unzip dos2unix \
-  && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+  && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net --recv-keys EBCF975E5BA24D5E \
   && apt-get update \
@@ -69,8 +69,8 @@ RUN curl -s https://get.sdkman.io | bash \
   && rm -Rf ~/.sdkman/archives/* ~/.sdkman/tmp/* \
   && pip install chainer keras tensorflow \
   && pip3 install chainer keras tensorflow \
-  && rbenv install 2.4.0 \
-  && rbenv global 2.4.0 \
+  && rbenv install 2.5.3 \
+  && rbenv global 2.5.3 \
   && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
   && bash -l -c "gem install bundler" \
   && bash -l ~/show_versions.sh \
