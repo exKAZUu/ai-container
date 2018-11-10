@@ -113,8 +113,8 @@ RUN curl -s https://get.sdkman.io | bash \
     "php -v | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
-    "SBT_OPTS='-Xms512M -Xmx4G' sbt | head -n 1" \
-    "SBT_OPTS='-Xms512M -Xmx4G' sbt about | head -n 1" \
+    "SBT_OPTS='-XX:+CMSClassUnloadingEnabled -Xms512M -Xmx2G -Xss2M -XX:MaxMetaspaceSize=1024M' sbt | head -n 1" \
+    "SBT_OPTS='-XX:+CMSClassUnloadingEnabled -Xms512M -Xmx2G -Xss2M -XX:MaxMetaspaceSize=1024M' sbt about | head -n 1" \
     "sbt about | head -n 5 | tail -n 1" \
     "scala -version 2>&1 | head -n 1" \
     "swipl --version | head -n 1" \
