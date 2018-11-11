@@ -1,12 +1,17 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.10
 MAINTAINER Kazunori Sakamoto
+
+ENV TZ=Asia/Tokyo
 
 RUN apt-get update \
   && apt-get dist-upgrade -y \
+  && apt-get install -y tzdata \
   && apt-get install -y build-essential curl wget dirmngr zip unzip dos2unix \
   && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net --recv-keys EBCF975E5BA24D5E \
+  && curl -sL "https://keybase.io/crystal/pgp_keys.asc" | apt-key add - \
+  && echo "deb https://dist.crystal-lang.org/apt crystal main" | tee /etc/apt/sources.list.d/crystal.list \
   && apt-get update \
   && apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring \
   && apt-get update \
@@ -14,7 +19,8 @@ RUN apt-get update \
   && apt-get install -y \
     clang \
     clisp \
-    dmd-bin \
+    crystal \
+    dmd-compiler dub \
     erlang \
     gauche \
     gdc \
@@ -39,7 +45,7 @@ RUN apt-get update \
     rustc \
   && apt-get clean -y \
   && npm install -g \
-    coffee-script \
+    coffeescript \
     typescript \
     livescript \
   && adduser --disabled-password --gecos "" aicomp \
@@ -69,16 +75,18 @@ RUN curl -s https://get.sdkman.io | bash \
   && rm -Rf ~/.sdkman/archives/* ~/.sdkman/tmp/* \
   && pip install chainer keras tensorflow \
   && pip3 install chainer keras tensorflow \
-  && rbenv install 2.5.3 \
-  && rbenv global 2.5.3 \
+  && rbenv install 2.4.1 \
+  && rbenv global 2.4.1 \
   && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
-  && bash -l -c "gem install bundler" \
-  && bash -l ~/show_versions.sh \
+  && bash -l -c "gem install bundler"
+
+RUN bash -l ~/show_versions.sh \
     "ant -version | head -n 1" \
     "ceylon -v | head -n 1" \
     "clang --version | head -n 1" \
     "clisp --version | head -n 1" \
     "coffee -v | head -n 1" \
+    "crystal -v | head -n 1" \
     "dmcs --version | head -n 1" \
     "dmd --version | head -n 1" \
     "erl +V 2>&1 | head -n 1" \
@@ -113,8 +121,8 @@ RUN curl -s https://get.sdkman.io | bash \
     "php -v | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
-    "SBT_OPTS='-Xms512M -Xmx4G' sbt | head -n 1" \
-    "SBT_OPTS='-Xms512M -Xmx4G' sbt about | head -n 1" \
+    "SBT_OPTS='-XX:+CMSClassUnloadingEnabled -Xms512M -Xmx2G -Xss2M -XX:MaxMetaspaceSize=1024M' sbt | head -n 1" \
+    "SBT_OPTS='-XX:+CMSClassUnloadingEnabled -Xms512M -Xmx2G -Xss2M -XX:MaxMetaspaceSize=1024M' sbt about | head -n 1" \
     "sbt about | head -n 5 | tail -n 1" \
     "scala -version 2>&1 | head -n 1" \
     "swipl --version | head -n 1" \
@@ -123,5 +131,4 @@ RUN curl -s https://get.sdkman.io | bash \
     "pip list" \
     "pip3 list" \
     > ~/show_versions \
-  && cat ~/show_versions \
-  && rm -rf ~/show_versions.sh ~/show_versions
+  && cat ~/show_versions
