@@ -57,7 +57,8 @@ USER aicomp
 
 COPY show_versions.sh /home/aicomp/
     
-RUN curl -s https://get.sdkman.io | bash \
+RUN cd \
+  && curl -s https://get.sdkman.io | bash \
   && echo "-Xms512M -Xmx4G" >> ~/.sbtopts \
   && echo 'export SDKMAN_DIR="/home/aicomp/.sdkman"' >> ~/.bash_profile \
   && echo '[[ -s "/home/aicomp/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aicomp/.sdkman/bin/sdkman-init.sh"' >> ~/.bash_profile \
@@ -78,9 +79,8 @@ RUN curl -s https://get.sdkman.io | bash \
   && rbenv install 2.4.1 \
   && rbenv global 2.4.1 \
   && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
-  && bash -l -c "gem install bundler"
-
-RUN bash -l ~/show_versions.sh \
+  && bash -l -c "gem install bundler" \
+  && bash -l ~/show_versions.sh \
     "ant -version | head -n 1" \
     "ceylon -v | head -n 1" \
     "clang --version | head -n 1" \
