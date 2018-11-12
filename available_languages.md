@@ -177,7 +177,9 @@ tensorflow (1.12.0)
 termcolor (1.1.0)
 Werkzeug (0.14.1)
 wheel (0.32.2)
-pip3 list => absl-py (0.6.1)
+
+pip3 list =>
+absl-py (0.6.1)
 asn1crypto (0.24.0)
 astor (0.7.1)
 chainer (5.0.0)
