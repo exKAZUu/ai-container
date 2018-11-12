@@ -6,73 +6,75 @@ ceylon -v | head -n 1 =>
 ceylon version 1.3.3 0d594b3 (Contents May Differ)
 
 clang --version | head -n 1 =>
-clang version 4.0.1-6 (tags/RELEASE_401/final)
+clang version 7.0.0-3 (tags/RELEASE_700/final)
 
 clisp --version | head -n 1 =>
-GNU CLISP 2.49 (2010-07-07) (built on lcy01-31.buildd [127.0.1.1])
+GNU CLISP 2.49.92 (2018-02-18) (built on lgw01-amd64-048.buildd [127.0.1.1])
 
 coffee -v | head -n 1 =>
-CoffeeScript version 1.12.7
+CoffeeScript version 2.3.2
 
-dmcs --version | head -n 1 =>
-Note: dmcs is deprecated, please use mcs instead!
+crystal -v | head -n 1 =>
+Crystal 0.27.0 [c9d1eef8f] (2018-11-01)
+
+mcs --version | head -n 1 =>
+Mono C# compiler version 4.6.2.0
 
 dmd --version | head -n 1 =>
-DMD64 D Compiler v2.078.0
+DMD64 D Compiler v2.083.0
 
 erl +V 2>&1 | head -n 1 =>
-Erlang (SMP,ASYNC_THREADS) (BEAM) emulator version 9.0.4
+Erlang (SMP,ASYNC_THREADS) (BEAM) emulator version 9.3.3.3
 
 gcc --version | head -n 1 =>
-gcc (Ubuntu 7.2.0-8ubuntu3) 7.2.0
+gcc (Ubuntu 8.2.0-7ubuntu1) 8.2.0
 
 gdc --version | head -n 1 =>
-gdc (Ubuntu 7.2.0-8ubuntu3) 7.2.0
+gdc (Ubuntu 8.2.0-7ubuntu1) 8.2.0
 
 gem -v | head -n 1 =>
-2.6.8
+2.6.11
 
 ghc --version | head -n 1 =>
-The Glorious Glasgow Haskell Compilation System, version 8.0.2
+The Glorious Glasgow Haskell Compilation System, version 8.2.2
 
 g++ --version | head -n 1 =>
-g++ (Ubuntu 7.2.0-8ubuntu3) 7.2.0
+g++ (Ubuntu 8.2.0-7ubuntu1) 8.2.0
 
 go version | head -n 1 =>
-go version go1.8.3 linux/amd64
+go version go1.10.4 linux/amd64
 
 gosh -V | head -n 1 =>
 Gauche scheme shell, version 0.9.5 [utf-8,pthreads], x86_64-pc-linux-gnu
 
-gradle -version | head -n 3 | tail -n 1 =>
-Gradle 4.4.1
+gradle -version | head -n 3 | tail -n 1 => 
 
 groovy --version | head -n 1 =>
-Groovy Version: 2.4.13 JVM: 1.8.0_152 Vendor: Azul Systems, Inc. OS: Linux
+Groovy Version: 2.5.4 JVM: 11.0.1 Vendor: Oracle Corporation OS: Linux
 
 gst -v | head -n 1 =>
 GNU Smalltalk version 3.2.5
 
 java -version 2>&1 | head -n 1 =>
-openjdk version "1.8.0_152"
+openjdk version "11.0.1" 2018-10-16
 
 javac -version 2>&1 | head -n 1 =>
-javac 1.8.0_152
+javac 11.0.1
 
 kotlin -version | head -n 1 =>
-Kotlin version 1.2.10 (JRE 1.8.0_152-b16)
+Kotlin version 1.3.0-release-212 (JRE 11.0.1+13)
 
 llc --version | head -n 2 | tail -n 1 =>
-LLVM version 4.0.1
+LLVM version 7.0.0
 
 lsc -v | head -n 1 =>
-LiveScript version 1.5.0
+LiveScript version 1.6.0
 
 lua5.3 -v | head -n 1 =>
 Lua 5.3.3  Copyright (C) 1994-2016 Lua.org, PUC-Rio
 
 make -v | head -n 1 =>
-GNU Make 4.1
+GNU Make 4.2.1
 
 mcs --version | head -n 1 =>
 Mono C# compiler version 4.6.2.0
@@ -81,16 +83,16 @@ mono -V | head -n 1 =>
 Mono JIT compiler version 4.6.2 (Debian 4.6.2.7+dfsg-1ubuntu1)
 
 mvn -v | head -n 1 =>
-Apache Maven 3.5.2 (138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T07:58:13Z)
+Apache Maven 3.6.0 (97c98ec64a1fdfee7767ce5ffb20918da4f719f3; 2018-10-25T03:41:47+09:00)
 
 node -v | head -n 1 =>
-v8.9.4
+v10.13.0
 
 npm -v | head -n 1 =>
-5.6.0
+6.4.1
 
 ocaml -version | head -n 1 =>
-The OCaml toplevel, version 4.04.0
+The OCaml toplevel, version 4.05.0
 
 pip -V | head -n 1 =>
 pip 9.0.1 from /usr/lib/python2.7/dist-packages (python 2.7)
@@ -99,104 +101,116 @@ pip3 -V | head -n 1 =>
 pip 9.0.1 from /usr/lib/python3/dist-packages (python 3.6)
 
 python -V 2>&1 | head -n 1 =>
-Python 2.7.14
+Python 2.7.15+
 
 python3 -V | head -n 1 =>
-Python 3.6.3
+Python 3.6.7
 
 perl -v | sed -n 2P =>
-This is perl 5, version 26, subversion 0 (v5.26.0) built for x86_64-linux-gnu-thread-multi
+This is perl 5, version 26, subversion 2 (v5.26.2) built for x86_64-linux-gnu-thread-multi
 
 php -v | head -n 1 =>
-PHP 7.1.11-0ubuntu0.17.10.1 (cli) (built: Nov  1 2017 16:30:52) ( NTS )
+PHP 7.2.10-0ubuntu1 (cli) (built: Sep 13 2018 13:38:55) ( NTS )
 
 ruby -v | head -n 1 =>
-ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-linux]
+ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
 
 rustc --version | head -n 1 =>
-rustc 1.18.0
+rustc 1.28.0
 
 sbt about | head -n 5 | tail -n 1 =>
-[info] This is sbt 1.1.0
 
 scala -version 2>&1 | head -n 1 =>
-Scala code runner version 2.12.4 -- Copyright 2002-2017, LAMP/EPFL and Lightbend, Inc.
+Scala code runner version 2.12.7 -- Copyright 2002-2018, LAMP/EPFL and Lightbend, Inc.
 
 swipl --version | head -n 1 =>
-SWI-Prolog version 7.4.2 for amd64
+SWI-Prolog version 7.6.4 for amd64
 
 tsc -v | head -n 1 =>
-Version 2.6.2
+Version 3.1.6
 
 xbuild --verison | head -n 1 =>
 XBuild Engine Version 14.0
 
 pip list =>
-asn1crypto (0.22.0)
+absl-py (0.6.1)
+asn1crypto (0.24.0)
+astor (0.7.1)
 backports.weakref (1.0.post1)
-bleach (1.5.0)
-chainer (3.2.0)
-cryptography (1.9)
-decorator (4.1.1)
+chainer (5.0.0)
+configparser (3.5.0b2)
+cryptography (2.3)
+decorator (4.3.0)
+entrypoints (0.2.3.post3)
 enum34 (1.1.6)
-filelock (3.0.0)
+filelock (3.0.10)
 funcsigs (1.0.2)
 futures (3.2.0)
-html5lib (0.9999999)
-idna (2.5)
+gast (0.2.0)
+grpcio (1.16.0)
+h5py (2.8.0)
+idna (2.6)
 ipaddress (1.0.17)
-Keras (2.1.2)
-keyring (10.4.0)
-keyrings.alt (2.2)
-Markdown (2.6.11)
+Keras (2.2.4)
+Keras-Applications (1.0.6)
+Keras-Preprocessing (1.0.5)
+keyring (15.1.0)
+keyrings.alt (3.1)
+Markdown (3.0.1)
 mock (2.0.0)
-numpy (1.14.0)
-olefile (0.44)
-pbr (3.1.1)
-Pillow (4.1.1)
+numpy (1.15.4)
+olefile (0.46)
+pbr (5.1.1)
+Pillow (5.2.0)
 pip (9.0.1)
-protobuf (3.5.1)
+protobuf (3.6.1)
 pycrypto (2.6.1)
-pygobject (3.24.1)
-Pyste (0.9.10)
+PyGObject (3.30.1)
 pyxdg (0.25)
-PyYAML (3.12)
-scipy (1.0.0)
+PyYAML (3.13)
+scipy (1.1.0)
 SecretStorage (2.3.1)
-setuptools (38.4.0)
+setuptools (40.5.0)
 six (1.11.0)
-tensorflow (1.4.1)
-tensorflow-tensorboard (0.4.0rc3)
+tensorboard (1.12.0)
+tensorflow (1.12.0)
+termcolor (1.1.0)
 Werkzeug (0.14.1)
-wheel (0.30.0)
-
-pip3 list =>
-asn1crypto (0.22.0)
-bleach (1.5.0)
-chainer (3.2.0)
-cryptography (1.9)
-decorator (4.1.1)
-enum34 (1.1.6)
-filelock (3.0.0)
-html5lib (0.9999999)
-idna (2.5)
-Keras (2.1.2)
-keyring (10.4.0)
-keyrings.alt (2.2)
-Markdown (2.6.11)
-numpy (1.14.0)
+wheel (0.32.2)
+pip3 list => absl-py (0.6.1)
+asn1crypto (0.24.0)
+astor (0.7.1)
+chainer (5.0.0)
+cryptography (2.3)
+decorator (4.3.0)
+entrypoints (0.2.3.post3)
+filelock (3.0.10)
+gast (0.2.0)
+grpcio (1.16.0)
+h5py (2.8.0)
+idna (2.6)
+Keras (2.2.4)
+Keras-Applications (1.0.6)
+Keras-Preprocessing (1.0.5)
+keyring (15.1.0)
+keyrings.alt (3.1)
+Markdown (3.0.1)
+numpy (1.15.4)
+olefile (0.46)
+Pillow (5.2.0)
 pip (9.0.1)
-protobuf (3.5.1)
+protobuf (3.6.1)
 pycrypto (2.6.1)
-pygobject (3.24.1)
+PyGObject (3.30.1)
 pyxdg (0.25)
-PyYAML (3.12)
-scipy (1.0.0)
+PyYAML (3.13)
+scipy (1.1.0)
 SecretStorage (2.3.1)
-setuptools (38.4.0)
+setuptools (40.5.0)
 six (1.11.0)
-tensorflow (1.4.1)
-tensorflow-tensorboard (0.4.0rc3)
+tensorboard (1.12.0)
+tensorflow (1.12.0)
+termcolor (1.1.0)
 Werkzeug (0.14.1)
-wheel (0.30.0)
+wheel (0.32.2)
 ```
