@@ -42,7 +42,6 @@ RUN apt-get update \
     php \
     swi-prolog \
     ruby rbenv ruby-build \
-    rustc \
   && apt-get clean -y \
   && npm install -g \
     coffeescript \
@@ -59,7 +58,6 @@ COPY show_versions.sh /home/aicomp/
     
 RUN cd \
   && curl -s https://get.sdkman.io | bash \
-  && echo "-Xms512M -Xmx4G" >> ~/.sbtopts \
   && echo 'export SDKMAN_DIR="/home/aicomp/.sdkman"' >> ~/.bash_profile \
   && echo '[[ -s "/home/aicomp/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aicomp/.sdkman/bin/sdkman-init.sh"' >> ~/.bash_profile \
   && bash -l -c " \
@@ -79,6 +77,7 @@ RUN cd \
   && rbenv install 2.4.1 \
   && rbenv global 2.4.1 \
   && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
+  && echo 'export SBT_OPTS="-Xms512M -Xmx1024M -Xss2M -XX:MaxMetaspaceSize=1024M"' >> ~/.bash_profile \
   && bash -l -c "gem install bundler" \
   && bash -l ~/show_versions.sh \
     "ant -version | head -n 1" \
@@ -87,7 +86,7 @@ RUN cd \
     "clisp --version | head -n 1" \
     "coffee -v | head -n 1" \
     "crystal -v | head -n 1" \
-    "dmcs --version | head -n 1" \
+    "mcs --version | head -n 1" \
     "dmd --version | head -n 1" \
     "erl +V 2>&1 | head -n 1" \
     "gcc --version | head -n 1" \
@@ -121,8 +120,8 @@ RUN cd \
     "php -v | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
-    "SBT_OPTS='-XX:+CMSClassUnloadingEnabled -Xms512M -Xmx2G -Xss2M -XX:MaxMetaspaceSize=1024M' sbt | head -n 1" \
-    "SBT_OPTS='-XX:+CMSClassUnloadingEnabled -Xms512M -Xmx2G -Xss2M -XX:MaxMetaspaceSize=1024M' sbt about | head -n 1" \
+    "sbt | head -n 1" \
+    "sbt about | head -n 1" \
     "sbt about | head -n 5 | tail -n 1" \
     "scala -version 2>&1 | head -n 1" \
     "swipl --version | head -n 1" \
