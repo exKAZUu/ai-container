@@ -42,12 +42,12 @@ RUN apt-get update \
     php \
     swi-prolog \
     ruby rbenv ruby-build \
-    rustc \
   && apt-get clean -y \
   && npm install -g \
     coffeescript \
     typescript \
     livescript \
+  && curl https://sh.rustup.rs -sSf | sh -s -- -y
   && adduser --disabled-password --gecos "" aicomp \
   && apt-get purge -y man \
   && apt-get clean -y \
