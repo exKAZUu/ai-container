@@ -47,7 +47,7 @@ RUN apt-get update \
     coffeescript \
     typescript \
     livescript \
-  && curl https://sh.rustup.rs -sSf | sh -s -- -y
+  && curl https://sh.rustup.rs -sSf | sh -s -- -y \
   && adduser --disabled-password --gecos "" aicomp \
   && apt-get purge -y man \
   && apt-get clean -y \
