@@ -122,6 +122,7 @@ RUN cd \
     "php -v | head -n 1" \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
+    "cargo --version | head -n 1" \    
     "sbt | head -n 1" \
     "sbt about | head -n 1" \
     "sbt about | head -n 5 | tail -n 1" \
