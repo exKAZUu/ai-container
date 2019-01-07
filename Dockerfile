@@ -47,7 +47,6 @@ RUN apt-get update \
     coffeescript \
     typescript \
     livescript \
-  && curl https://sh.rustup.rs -sSf | sh -s -- -y \
   && adduser --disabled-password --gecos "" aicomp \
   && apt-get purge -y man \
   && apt-get clean -y \
@@ -58,6 +57,7 @@ USER aicomp
 COPY show_versions.sh /home/aicomp/
     
 RUN cd \
+  && curl https://sh.rustup.rs -sSf | sh -s -- -y \
   && curl -s https://get.sdkman.io | bash \
   && echo "-Xms512M -Xmx4G" >> ~/.sbtopts \
   && echo 'export SDKMAN_DIR="/home/aicomp/.sdkman"' >> ~/.bash_profile \
