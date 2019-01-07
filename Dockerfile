@@ -123,9 +123,7 @@ RUN cd \
     "ruby -v | head -n 1" \
     "rustc --version | head -n 1" \
     "cargo --version | head -n 1" \    
-    "sbt | head -n 1" \
-    "sbt about | head -n 1" \
-    "sbt about | head -n 5 | tail -n 1" \
+    "sbt about | head -n 3 | tail -n 1" \
     "scala -version 2>&1 | head -n 1" \
     "swipl --version | head -n 1" \
     "tsc -v | head -n 1" \
