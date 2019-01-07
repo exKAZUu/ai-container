@@ -25,6 +25,7 @@ RUN apt update \
     erlang \
     gauche \
     gdc \
+    gfortran \
     ghc \
     gnu-smalltalk \
     golang \
@@ -37,6 +38,7 @@ RUN apt update \
     mono-xbuild \
     nodejs \
     ocaml-nox \
+    open-cobol \
     python python-pip python-numpy python-scipy \
     python3 python3-pip python3-numpy python3-scipy \
     perl \
@@ -89,6 +91,7 @@ RUN cd \
     "clang --version | head -n 1" \
     "clisp --version | head -n 1" \
     "cmake --version | head -n 1" \
+    "cobc --version | head -n 1" \
     "coffee -v | head -n 1" \
     "crystal -v | head -n 1" \
     "mcs --version | head -n 1" \
@@ -97,6 +100,7 @@ RUN cd \
     "gcc --version | head -n 1" \
     "gdc --version | head -n 1" \
     "gem -v | head -n 1" \
+    "gfortran --version | head -n 1" \
     "ghc --version | head -n 1" \
     "g++ --version | head -n 1" \
     "go version | head -n 1" \
