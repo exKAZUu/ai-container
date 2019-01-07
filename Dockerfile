@@ -7,7 +7,7 @@ RUN apt update \
   && apt dist-upgrade -y \
   && apt install -y tzdata \
   && apt install -y build-essential curl wget dirmngr zip unzip dos2unix \
-  && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+  && curl -sL https://deb.nodesource.com/setup_11.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net --recv-keys EBCF975E5BA24D5E \
   && curl -sL "https://keybase.io/crystal/pgp_keys.asc" | apt-key add - \
@@ -43,14 +43,15 @@ RUN apt update \
     php \
     swi-prolog \
     ruby rbenv ruby-build \
-  && apt-get clean -y \
+  && apt autoremove -y \
+  && apt clean -y \
   && npm install -g \
     coffeescript \
     typescript \
     livescript \
   && adduser --disabled-password --gecos "" aicomp \
-  && apt-get purge -y man \
-  && apt-get clean -y \
+  && apt purge -y man \
+  && apt clean -y \
   && rm -rf /var/lib/apt/lists/* /tmp/*
 
 USER aicomp
