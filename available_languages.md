@@ -21,7 +21,7 @@ mcs --version | head -n 1 =>
 Mono C# compiler version 4.6.2.0
 
 dmd --version | head -n 1 =>
-DMD64 D Compiler v2.083.0
+DMD64 D Compiler v2.084.0
 
 erl +V 2>&1 | head -n 1 =>
 Erlang (SMP,ASYNC_THREADS) (BEAM) emulator version 9.3.3.3
@@ -50,7 +50,7 @@ Gauche scheme shell, version 0.9.5 [utf-8,pthreads], x86_64-pc-linux-gnu
 gradle -version | head -n 3 | tail -n 1 => 
 
 groovy --version | head -n 1 =>
-Groovy Version: 2.5.4 JVM: 11.0.1 Vendor: Oracle Corporation OS: Linux
+Groovy Version: 2.5.5 JVM: 11.0.1 Vendor: Oracle Corporation OS: Linux
 
 gst -v | head -n 1 =>
 GNU Smalltalk version 3.2.5
@@ -62,7 +62,7 @@ javac -version 2>&1 | head -n 1 =>
 javac 11.0.1
 
 kotlin -version | head -n 1 =>
-Kotlin version 1.3.0-release-212 (JRE 11.0.1+13)
+Kotlin version 1.3.11-release-272 (JRE 11.0.1+13)
 
 llc --version | head -n 2 | tail -n 1 =>
 LLVM version 7.0.0
@@ -121,13 +121,13 @@ rustc 1.28.0
 sbt about | head -n 5 | tail -n 1 =>
 
 scala -version 2>&1 | head -n 1 =>
-Scala code runner version 2.12.7 -- Copyright 2002-2018, LAMP/EPFL and Lightbend, Inc.
+Scala code runner version 2.12.8 -- Copyright 2002-2018, LAMP/EPFL and Lightbend, Inc.
 
 swipl --version | head -n 1 =>
 SWI-Prolog version 7.6.4 for amd64
 
 tsc -v | head -n 1 =>
-Version 3.1.6
+Version 3.2.2
 
 xbuild --verison | head -n 1 =>
 XBuild Engine Version 14.0
@@ -137,7 +137,7 @@ absl-py (0.6.1)
 asn1crypto (0.24.0)
 astor (0.7.1)
 backports.weakref (1.0.post1)
-chainer (5.0.0)
+chainer (5.1.0)
 configparser (3.5.0b2)
 cryptography (2.3)
 decorator (4.3.0)
@@ -146,9 +146,9 @@ enum34 (1.1.6)
 filelock (3.0.10)
 funcsigs (1.0.2)
 futures (3.2.0)
-gast (0.2.0)
-grpcio (1.16.0)
-h5py (2.8.0)
+gast (0.2.1)
+grpcio (1.17.1)
+h5py (2.9.0)
 idna (2.6)
 ipaddress (1.0.17)
 Keras (2.2.4)
@@ -168,28 +168,28 @@ pycrypto (2.6.1)
 PyGObject (3.30.1)
 pyxdg (0.25)
 PyYAML (3.13)
-scipy (1.1.0)
+scipy (1.2.0)
 SecretStorage (2.3.1)
-setuptools (40.5.0)
-six (1.11.0)
-tensorboard (1.12.0)
+setuptools (40.6.3)
+six (1.12.0)
+tensorboard (1.12.2)
 tensorflow (1.12.0)
 termcolor (1.1.0)
 Werkzeug (0.14.1)
-wheel (0.32.2)
+wheel (0.32.3)
 
 pip3 list =>
 absl-py (0.6.1)
 asn1crypto (0.24.0)
 astor (0.7.1)
-chainer (5.0.0)
+chainer (5.1.0)
 cryptography (2.3)
 decorator (4.3.0)
 entrypoints (0.2.3.post3)
 filelock (3.0.10)
-gast (0.2.0)
-grpcio (1.16.0)
-h5py (2.8.0)
+gast (0.2.1)
+grpcio (1.17.1)
+h5py (2.9.0)
 idna (2.6)
 Keras (2.2.4)
 Keras-Applications (1.0.6)
@@ -206,13 +206,13 @@ pycrypto (2.6.1)
 PyGObject (3.30.1)
 pyxdg (0.25)
 PyYAML (3.13)
-scipy (1.1.0)
+scipy (1.2.0)
 SecretStorage (2.3.1)
-setuptools (40.5.0)
-six (1.11.0)
-tensorboard (1.12.0)
+setuptools (40.6.3)
+six (1.12.0)
+tensorboard (1.12.2)
 tensorflow (1.12.0)
 termcolor (1.1.0)
 Werkzeug (0.14.1)
-wheel (0.32.2)
+wheel (0.32.3)
 ```
