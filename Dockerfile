@@ -29,6 +29,7 @@ RUN apt update \
     ghc \
     gnu-smalltalk \
     golang \
+    julia \
     libboost-all-dev \
     llvm \
     lua5.3 \
@@ -110,6 +111,7 @@ RUN cd \
     "gst -v | head -n 1" \
     "java -version 2>&1 | head -n 1" \
     "javac -version 2>&1 | head -n 1" \
+    "julia --version | head -n 1" \
     "kotlin -version | head -n 1" \
     "llc --version | head -n 2 | tail -n 1" \
     "lsc -v | head -n 1" \
