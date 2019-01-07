@@ -4,7 +4,7 @@ IFS_BACKUP=$IFS
 IFS=$'\n'
 
 for cmd in $*; do
-    echo "${cmd} => `eval ${cmd}`"
+    echo "${cmd} =>\n`eval ${cmd}`\n"
 done
 
 IFS=$IFS_BACKUP
