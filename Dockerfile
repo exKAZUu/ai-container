@@ -3,22 +3,23 @@ MAINTAINER Kazunori Sakamoto
 
 ENV TZ=Asia/Tokyo
 
-RUN apt-get update \
-  && apt-get dist-upgrade -y \
-  && apt-get install -y tzdata \
-  && apt-get install -y build-essential curl wget dirmngr zip unzip dos2unix \
+RUN apt update \
+  && apt dist-upgrade -y \
+  && apt install -y tzdata \
+  && apt install -y build-essential curl wget dirmngr zip unzip dos2unix \
   && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net --recv-keys EBCF975E5BA24D5E \
   && curl -sL "https://keybase.io/crystal/pgp_keys.asc" | apt-key add - \
   && echo "deb https://dist.crystal-lang.org/apt crystal main" | tee /etc/apt/sources.list.d/crystal.list \
-  && apt-get update \
-  && apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring \
-  && apt-get update \
-  && apt-get dist-upgrade -y \
-  && apt-get install -y \
+  && apt update \
+  && apt -y --allow-unauthenticated install --reinstall d-apt-keyring \
+  && apt update \
+  && apt dist-upgrade -y \
+  && apt install -y \
     clang \
     clisp \
+    cmake \
     crystal \
     dmd-compiler dub \
     erlang \
@@ -86,6 +87,7 @@ RUN cd \
     "ceylon -v | head -n 1" \
     "clang --version | head -n 1" \
     "clisp --version | head -n 1" \
+    "cmake --version | head -n 1" \
     "coffee -v | head -n 1" \
     "crystal -v | head -n 1" \
     "mcs --version | head -n 1" \
