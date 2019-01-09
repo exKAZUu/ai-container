@@ -62,11 +62,11 @@ USER aicomp
 COPY show_versions.sh /home/aicomp/
     
 RUN cd \
-  && curl https://sh.rustup.rs -sSf | sh -s -- -y \
   && curl -s https://get.sdkman.io | bash \
   && echo -e "-J-Xms512M\n-J-Xmx4G" >> ~/.sbtopts \
   && echo 'export SDKMAN_DIR="/home/aicomp/.sdkman"' >> ~/.bash_profile \
   && echo '[[ -s "/home/aicomp/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aicomp/.sdkman/bin/sdkman-init.sh"' >> ~/.bash_profile \
+  && curl https://sh.rustup.rs -sSf | sh -s -- -y \
   && bash -l -c " \
     yes | sdk install java \
     && sdk install ant \
