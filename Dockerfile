@@ -12,6 +12,8 @@ RUN apt update \
   && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net --recv-keys EBCF975E5BA24D5E \
   && curl -sL "https://keybase.io/crystal/pgp_keys.asc" | apt-key add - \
   && echo "deb https://dist.crystal-lang.org/apt crystal main" | tee /etc/apt/sources.list.d/crystal.list \
+  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
+  && echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list \
   && apt update \
   && apt -y --allow-unauthenticated install --reinstall d-apt-keyring \
   && apt update \
