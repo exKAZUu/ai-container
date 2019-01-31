@@ -138,7 +138,7 @@ RUN cd \
     "scala -version 2>&1 | head -n 1" \
     "swipl --version | head -n 1" \
     "tsc -v | head -n 1" \
-    "xbuild --verison | head -n 1" \
+    "xbuild --verison | head -n 4 | tail -n 1" \
     "pip list" \
     "pip3 list" \
     > ~/show_versions \
