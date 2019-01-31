@@ -24,7 +24,7 @@ crystal -v | head -n 1 =>
 Crystal 0.27.0 [c9d1eef8f] (2018-11-01)
 
 mcs --version | head -n 1 =>
-Mono C# compiler version 4.6.2.0
+Mono C# compiler version 5.18.0.240
 
 dmd --version | head -n 1 =>
 DMD64 D Compiler v2.084.0
@@ -90,16 +90,16 @@ make -v | head -n 1 =>
 GNU Make 4.2.1
 
 mcs --version | head -n 1 =>
-Mono C# compiler version 4.6.2.0
+Mono C# compiler version 5.18.0.240
 
 mono -V | head -n 1 =>
-Mono JIT compiler version 4.6.2 (Debian 4.6.2.7+dfsg-1ubuntu1)
+Mono JIT compiler version 5.18.0.240 (tarball Wed Jan 16 09:10:16 UTC 2019)
 
 mvn -v | head -n 1 =>
 Apache Maven 3.6.0 (97c98ec64a1fdfee7767ce5ffb20918da4f719f3; 2018-10-25T03:41:47+09:00)
 
 node -v | head -n 1 =>
-v11.7.0
+v11.8.0
 
 npm -v | head -n 1 =>
 6.5.0
@@ -146,7 +146,7 @@ SWI-Prolog version 7.6.4 for amd64
 tsc -v | head -n 1 =>
 Version 3.2.4
 
-xbuild --verison | head -n 1 =>
+xbuild --verison | head -n 4 | tail -n 1 =>
 XBuild Engine Version 14.0
 
 pip list =>
@@ -154,7 +154,7 @@ absl-py (0.7.0)
 asn1crypto (0.24.0)
 astor (0.7.1)
 backports.weakref (1.0.post1)
-chainer (5.1.0)
+chainer (5.2.0)
 configparser (3.5.0b2)
 cryptography (2.3)
 decorator (4.3.0)
@@ -169,8 +169,8 @@ h5py (2.9.0)
 idna (2.6)
 ipaddress (1.0.17)
 Keras (2.2.4)
-Keras-Applications (1.0.6)
-Keras-Preprocessing (1.0.5)
+Keras-Applications (1.0.7)
+Keras-Preprocessing (1.0.6)
 keyring (15.1.0)
 keyrings.alt (3.1)
 Markdown (3.0.1)
@@ -187,7 +187,7 @@ pyxdg (0.25)
 PyYAML (3.13)
 scipy (1.2.0)
 SecretStorage (2.3.1)
-setuptools (40.6.3)
+setuptools (40.7.1)
 six (1.12.0)
 tensorboard (1.12.2)
 tensorflow (1.12.0)
@@ -199,7 +199,7 @@ pip3 list =>
 absl-py (0.7.0)
 asn1crypto (0.24.0)
 astor (0.7.1)
-chainer (5.1.0)
+chainer (5.2.0)
 cryptography (2.3)
 decorator (4.3.0)
 entrypoints (0.2.3.post3)
@@ -209,8 +209,8 @@ grpcio (1.18.0)
 h5py (2.9.0)
 idna (2.6)
 Keras (2.2.4)
-Keras-Applications (1.0.6)
-Keras-Preprocessing (1.0.5)
+Keras-Applications (1.0.7)
+Keras-Preprocessing (1.0.6)
 keyring (15.1.0)
 keyrings.alt (3.1)
 Markdown (3.0.1)
@@ -225,7 +225,7 @@ pyxdg (0.25)
 PyYAML (3.13)
 scipy (1.2.0)
 SecretStorage (2.3.1)
-setuptools (40.6.3)
+setuptools (40.7.1)
 six (1.12.0)
 tensorboard (1.12.2)
 tensorflow (1.12.0)
