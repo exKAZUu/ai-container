@@ -23,6 +23,8 @@ RUN apt update \
     clisp \
     cmake \
     crystal \
+    cython \
+    cython3 \
     dmd-compiler dub \
     erlang \
     gauche \
@@ -97,6 +99,8 @@ RUN cd \
     "cobc --version | head -n 1" \
     "coffee -v | head -n 1" \
     "crystal -v | head -n 1" \
+    "cython -V | head -n 1" \
+    "cython3 -V | head -n 1" \
     "mcs --version | head -n 1" \
     "dmd --version | head -n 1" \
     "erl +V 2>&1 | head -n 1" \
@@ -127,7 +131,7 @@ RUN cd \
     "ocaml -version | head -n 1" \
     "pip -V | head -n 1" \
     "pip3 -V | head -n 1" \
-    "python -V 2>&1 | head -n 1" \
+    "python -V | head -n 1" \
     "python3 -V | head -n 1" \
     "perl -v | sed -n 2P" \
     "php -v | head -n 1" \
