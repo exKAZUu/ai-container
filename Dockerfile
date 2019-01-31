@@ -88,6 +88,7 @@ RUN cd \
   && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
   && echo "export SBT_OPTS='-Xms512M -Xmx4G'" >> ~/.bash_profile \
   && bash -l -c "gem install bundler" \
+  && bash -l -c "groovy --version && sbt about && sbt about" \
   && bash -l ~/show_versions.sh \
     "ant -version | head -n 1" \
     "ceylon -v | head -n 1" \
