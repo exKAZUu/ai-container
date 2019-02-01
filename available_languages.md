@@ -23,6 +23,12 @@ CoffeeScript version 2.3.2
 crystal -v | head -n 1 =>
 Crystal 0.27.0 [c9d1eef8f] (2018-11-01)
 
+cython -V | head -n 1 =>
+Cython version 0.28.4
+
+cython3 -V | head -n 1 =>
+Cython version 0.28.4
+
 mcs --version | head -n 1 =>
 Mono C# compiler version 5.18.0.240
 
@@ -99,7 +105,7 @@ mvn -v | head -n 1 =>
 Apache Maven 3.6.0 (97c98ec64a1fdfee7767ce5ffb20918da4f719f3; 2018-10-25T03:41:47+09:00)
 
 node -v | head -n 1 =>
-v11.8.0
+v11.9.0
 
 npm -v | head -n 1 =>
 6.5.0
@@ -113,7 +119,7 @@ pip 9.0.1 from /usr/lib/python2.7/dist-packages (python 2.7)
 pip3 -V | head -n 1 =>
 pip 9.0.1 from /usr/lib/python3/dist-packages (python 3.6)
 
-python -V 2>&1 | head -n 1 =>
+python -V | head -n 1 =>
 Python 2.7.15+
 
 python3 -V | head -n 1 =>
@@ -135,7 +141,7 @@ cargo --version | head -n 1 =>
 cargo 1.32.0 (8610973aa 2019-01-02)
 
 sbt about | head -n 3 | tail -n 1 =>
-[info] This is sbt 1.2.8
+This is sbt 1.2.8
 
 scala -version 2>&1 | head -n 1 =>
 Scala code runner version 2.12.8 -- Copyright 2002-2018, LAMP/EPFL and Lightbend, Inc.
@@ -144,7 +150,7 @@ swipl --version | head -n 1 =>
 SWI-Prolog version 7.6.4 for amd64
 
 tsc -v | head -n 1 =>
-Version 3.2.4
+Version 3.3.1
 
 xbuild --verison | head -n 4 | tail -n 1 =>
 XBuild Engine Version 14.0
@@ -157,6 +163,7 @@ backports.weakref (1.0.post1)
 chainer (5.2.0)
 configparser (3.5.0b2)
 cryptography (2.3)
+Cython (0.28.4)
 decorator (4.3.0)
 entrypoints (0.2.3.post3)
 enum34 (1.1.6)
@@ -170,14 +177,14 @@ idna (2.6)
 ipaddress (1.0.17)
 Keras (2.2.4)
 Keras-Applications (1.0.7)
-Keras-Preprocessing (1.0.6)
+Keras-Preprocessing (1.0.8)
 keyring (15.1.0)
 keyrings.alt (3.1)
 Markdown (3.0.1)
 mock (2.0.0)
-numpy (1.16.0)
+numpy (1.16.1)
 olefile (0.46)
-pbr (5.1.1)
+pbr (5.1.2)
 Pillow (5.2.0)
 pip (9.0.1)
 protobuf (3.6.1)
@@ -201,6 +208,7 @@ asn1crypto (0.24.0)
 astor (0.7.1)
 chainer (5.2.0)
 cryptography (2.3)
+Cython (0.28.4)
 decorator (4.3.0)
 entrypoints (0.2.3.post3)
 filelock (3.0.10)
@@ -210,11 +218,11 @@ h5py (2.9.0)
 idna (2.6)
 Keras (2.2.4)
 Keras-Applications (1.0.7)
-Keras-Preprocessing (1.0.6)
+Keras-Preprocessing (1.0.8)
 keyring (15.1.0)
 keyrings.alt (3.1)
 Markdown (3.0.1)
-numpy (1.16.0)
+numpy (1.16.1)
 olefile (0.46)
 Pillow (5.2.0)
 pip (9.0.1)
