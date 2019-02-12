@@ -84,7 +84,7 @@ RUN cd \
   " \
   && rm -Rf ~/.sdkman/archives/* ~/.sdkman/tmp/* \
   && pip install chainer keras tensorflow \
-  && pip3 install chainer keras tensorflow \
+  && pip3 install chainer keras tensorflow https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp36-cp36m-linux_x86_64.whl torchvision \
   && rbenv install 2.4.1 \
   && rbenv global 2.4.1 \
   && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
