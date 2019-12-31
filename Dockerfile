@@ -7,7 +7,7 @@ RUN apt update \
   && apt dist-upgrade -y \
   && apt install -y tzdata \
   && apt install -y build-essential curl wget dirmngr zip unzip dos2unix \
-  && curl -sL https://deb.nodesource.com/setup_11.x | bash - \
+  && curl -sL https://deb.nodesource.com/setup_13.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net --recv-keys EBCF975E5BA24D5E \
   && curl -sL "https://keybase.io/crystal/pgp_keys.asc" | apt-key add - \
@@ -84,9 +84,9 @@ RUN cd \
   " \
   && rm -Rf ~/.sdkman/archives/* ~/.sdkman/tmp/* \
   && pip install chainer keras tensorflow \
-  && pip3 install chainer keras tensorflow https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp36-cp36m-linux_x86_64.whl torchvision \
-  && rbenv install 2.4.1 \
-  && rbenv global 2.4.1 \
+  && pip3 install chainer keras tensorflow https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-2.0.0-cp37-cp37m-manylinux2010_x86_64.whl torchvision \
+  && rbenv install 2.7.0 \
+  && rbenv global 2.7.0 \
   && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
   && echo "export SBT_OPTS='-Xms512M -Xmx4G'" >> ~/.bash_profile \
   && bash -l -c "gem install bundler" \
