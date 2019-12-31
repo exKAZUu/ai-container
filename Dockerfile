@@ -45,7 +45,7 @@ RUN apt update \
     ocaml-nox \
     open-cobol \
     python python-pip python-numpy python-scipy \
-    python3 python3-pip python3-numpy python3-scipy \
+    python3 python3-dev python3-pip python3-numpy python3-scipy \
     perl \
     php \
     swi-prolog \
