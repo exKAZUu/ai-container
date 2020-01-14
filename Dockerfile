@@ -3,10 +3,10 @@ MAINTAINER Kazunori Sakamoto
 
 ENV TZ=Asia/Tokyo
 
-RUN apt update \
-  && apt dist-upgrade -y \
-  && apt install -y tzdata \
-  && apt install -y build-essential curl wget dirmngr zip unzip dos2unix \
+RUN apt-get update \
+  && apt-get dist-upgrade -y \
+  && apt-get install -y tzdata \
+  && apt-get install -y build-essential curl wget dirmngr zip unzip dos2unix \
   && curl -sL https://deb.nodesource.com/setup_13.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net --recv-keys EBCF975E5BA24D5E \
@@ -14,11 +14,11 @@ RUN apt update \
   && echo "deb https://dist.crystal-lang.org/apt crystal main" | tee /etc/apt/sources.list.d/crystal.list \
   && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
   && echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list \
-  && apt update \
-  && apt -y --allow-unauthenticated install --reinstall d-apt-keyring \
-  && apt update \
-  && apt dist-upgrade -y \
-  && apt install -y \
+  && apt-get update \
+  && apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring \
+  && apt-get update \
+  && apt-get dist-upgrade -y \
+  && apt-get install -y \
     clang \
     clisp \
     cmake \
@@ -50,15 +50,15 @@ RUN apt update \
     php \
     swi-prolog \
     ruby rbenv ruby-build \
-  && apt autoremove -y \
-  && apt clean -y \
+  && apt-get autoremove -y \
+  && apt-get clean -y \
   && npm install -g \
     coffeescript \
     typescript \
     livescript \
   && adduser --disabled-password --gecos "" aicomp \
-  && apt purge -y man \
-  && apt clean -y \
+  && apt-get purge -y man \
+  && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/* /tmp/*
 
 USER aicomp
@@ -84,7 +84,7 @@ RUN cd \
   " \
   && rm -Rf ~/.sdkman/archives/* ~/.sdkman/tmp/* \
   && pip install chainer keras tensorflow \
-  && pip3 install chainer keras tensorflow https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-2.0.0-cp37-cp37m-manylinux2010_x86_64.whl torchvision \
+  && pip3 install chainer keras tensorflow torchvision \
   && rbenv install 2.7.0 \
   && rbenv global 2.7.0 \
   && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
