@@ -7,7 +7,7 @@ RUN apt-get update \
   && apt-get dist-upgrade -y \
   && apt-get install -y tzdata \
   && apt-get install -y build-essential curl wget dirmngr zip unzip dos2unix \
-  && curl -sL https://deb.nodesource.com/setup_13.x | bash - \
+  && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
   && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net --recv-keys EBCF975E5BA24D5E \
   && curl -sL "https://keybase.io/crystal/pgp_keys.asc" | apt-key add - \
