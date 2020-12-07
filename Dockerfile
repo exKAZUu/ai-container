@@ -1,6 +1,7 @@
 FROM ubuntu:20.10
 
 ENV TZ=Asia/Tokyo
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
   && apt-get purge -y man \
