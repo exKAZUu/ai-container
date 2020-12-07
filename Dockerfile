@@ -1,20 +1,24 @@
 FROM ubuntu:20.10
-MAINTAINER Kazunori Sakamoto
 
 ENV TZ=Asia/Tokyo
 
 RUN apt-get update \
+  && apt-get purge -y man \
   && apt-get dist-upgrade -y \
   && apt-get install -y tzdata \
   && apt-get install -y build-essential curl wget dirmngr zip unzip dos2unix \
   && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
-  && wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
+# https://dlang.org/download.html
+  && wget https://netcologne.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list \
   && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net --recv-keys EBCF975E5BA24D5E \
-  && curl -sL "https://keybase.io/crystal/pgp_keys.asc" | apt-key add - \
+# https://crystal-lang.org/install/on_ubuntu/
+  && curl -sL "https://keybase.io/crystal/pgp_keys.asc" | apt-key add - \ 
   && echo "deb https://dist.crystal-lang.org/apt crystal main" | tee /etc/apt/sources.list.d/crystal.list \
+# https://www.mono-project.com/download/stable/#download-lin
+  && apt-get install gnupg ca-certificates \
   && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
-  && echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list \
-  && apt-get update \
+  && echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | tee /etc/apt/sources.list.d/mono-official-stable.list \
+  && apt-get update --allow-insecure-repositories \
   && apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring \
   && apt-get update \
   && apt-get dist-upgrade -y \
@@ -23,8 +27,6 @@ RUN apt-get update \
     clisp \
     cmake \
     crystal \
-    cython \
-    cython3 \
     dmd-compiler dub \
     erlang \
     gauche \
@@ -44,12 +46,17 @@ RUN apt-get update \
     nodejs \
     ocaml-nox \
     open-cobol \
-    python python-pip python-numpy python-scipy \
-    python3 python3-dev python3-pip python3-numpy python3-scipy \
+    python python-dev \
+    python3 python3-pip python3-dev \
     perl \
     php \
     swi-prolog \
     ruby rbenv ruby-build \
+# https://linuxize.com/post/how-to-install-pip-on-ubuntu-20.04/
+  && apt-get install -y software-properties-common \
+  && add-apt-repository universe \
+  && curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py \
+  && python2 get-pip.py \
   && apt-get autoremove -y \
   && apt-get clean -y \
   && npm install -g \
@@ -57,12 +64,12 @@ RUN apt-get update \
     typescript \
     livescript \
   && adduser --disabled-password --gecos "" aicomp \
-  && apt-get purge -y man \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/* /tmp/*
 
 USER aicomp
 
+ENV PATH=$PATH:/home/aicomp/.local/bin
 COPY show_versions.sh /home/aicomp/
     
 RUN cd \
@@ -71,6 +78,7 @@ RUN cd \
   && echo 'export SDKMAN_DIR="/home/aicomp/.sdkman"' >> ~/.bash_profile \
   && echo '[[ -s "/home/aicomp/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aicomp/.sdkman/bin/sdkman-init.sh"' >> ~/.bash_profile \
   && curl https://sh.rustup.rs -sSf | sh -s -- -y \
+  && curl -fsSL https://deno.land/x/install/install.sh | sh \
   && bash -l -c " \
     yes | sdk install java \
     && sdk install ant \
@@ -83,10 +91,10 @@ RUN cd \
     && sdk install scala \
   " \
   && rm -Rf ~/.sdkman/archives/* ~/.sdkman/tmp/* \
-  && pip install chainer keras tensorflow \
-  && pip3 install chainer keras tensorflow torchvision \
-  && rbenv install 2.7.0 \
-  && rbenv global 2.7.0 \
+  && pip2 install -U tensorflow chainer Cython keras scikit-learn torchvision \
+  && pip3 install -U tensorflow chainer Cython keras scikit-learn torchvision \
+  && rbenv install 2.7.1 \
+  && rbenv global 2.7.1 \
   && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
   && echo "export SBT_OPTS='-Xms512M -Xmx4G'" >> ~/.bash_profile \
   && bash -l -c "gem install bundler" \
@@ -102,7 +110,7 @@ RUN cd \
     "crystal -v | head -n 1" \
     "cython -V | head -n 1" \
     "cython3 -V | head -n 1" \
-    "mcs --version | head -n 1" \
+    "deno --version | head -n 3" \
     "dmd --version | head -n 1" \
     "erl +V 2>&1 | head -n 1" \
     "gcc --version | head -n 1" \
@@ -130,7 +138,7 @@ RUN cd \
     "node -v | head -n 1" \
     "npm -v | head -n 1" \
     "ocaml -version | head -n 1" \
-    "pip -V | head -n 1" \
+    "pip2 -V | head -n 1" \
     "pip3 -V | head -n 1" \
     "python -V | head -n 1" \
     "python3 -V | head -n 1" \
@@ -144,7 +152,7 @@ RUN cd \
     "swipl --version | head -n 1" \
     "tsc -v | head -n 1" \
     "xbuild --verison | head -n 4 | tail -n 1" \
-    "pip list" \
+    "pip2 list" \
     "pip3 list" \
     > ~/show_versions \
   && cat ~/show_versions
